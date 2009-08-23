@@ -1,10 +1,21 @@
 use strict;
-use Test::More tests => 7;
+use Test::More tests => 9;
 
 # for shortcut
 my $MORPHISM = 'Math::Category::Impl::SubroutineMorphism';
 
 use_ok $MORPHISM;
+
+# TEST 0: check the source and target
+{
+    my $morph = $MORPHISM->new_with_sub( sub {
+        return $_[0] + 100;
+    } );
+
+    is $morph->source->subroutine->(123), 123;
+    is $morph->target->subroutine->(765), 765;
+}
+
 
 # TEST 1: one argument subroutines
 {

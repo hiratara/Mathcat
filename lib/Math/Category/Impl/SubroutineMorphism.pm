@@ -10,7 +10,7 @@ has subroutines => (
 	required => 1,
 );
 
-our $ID = sub { @_ };
+our $ID = __PACKAGE__->new_with_sub( sub { @_ } );
 
 sub new_with_sub {
 	my $class = shift;
