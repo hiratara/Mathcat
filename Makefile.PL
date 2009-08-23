@@ -2,7 +2,7 @@ use inc::Module::Install;
 name 'Math-Category';
 all_from 'lib/Math/Category.pm';
 
-# requires '';
+requires qw(Moose Sub::Exporter);
 
 tests 't/*.t';
 author_tests 'xt';
