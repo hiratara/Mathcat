@@ -21,7 +21,7 @@ sub composition {
 	my $self     = shift;
 	my $morphism = shift;
 	return __PACKAGE__->new(
-		morphism => $self->morphism . $morphism->morphism, 
+		morphism => $morphism->morphism . $self->morphism, 
 	);
 }
 
