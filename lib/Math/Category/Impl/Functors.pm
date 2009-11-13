@@ -1,15 +1,10 @@
-package Math::Category::Impl::HomBifunctor;
-use Moose;
-use Math::Category::Impl::OppositeMorphism;
-use Math::Category::Impl::Bimorphism;
+package Math::Category::Impl::Functors;
+use Math::Category::Impl::AnyFunctor;
 use Math::Category::Impl::SubroutineMorphism;
-our $VERSION = '0.01';
+use base Exporter::;
+our @EXPORT_OK = qw($HOM_BIFUNCTOR);
 
-extends 'Math::Category::Functor';
-
-# A mapping of morphisms.
-sub apply {
-	my $self = shift;
+our $HOM_BIFUNCTOR = Math::Category::Impl::AnyFunctor->new( sub {
 	my ($bimorphism) = @_;
 	# morphism1 in the opposite category
 	my $morph1 = $bimorphism->morphism1->morphism;
@@ -19,23 +14,24 @@ sub apply {
 		my $morph = shift;
 		return $morph2 . $morph . $morph1;
 	} );
-}
-
-__PACKAGE__->meta->make_immutable;
-no  Moose;
+} );
 
 1;
+
+
 __END__
 
 =head1 NAME
 
-Math::Category::Impl::HomBifunctor - Implementation of C(-,-)
+Math::Category::Impl::Functors - Functor implementations.
 
 =head1 SYNOPSIS
 
-  use Math::Category::Impl::HomBifunctor;
+  use Math::Category::Impl::Functors qw($HOM_BIFUNCTOR);
 
 =head1 DESCRIPTION
+
+=item $HOM_BIFUNCTOR
 
 Math::Category::Impl::HomBifunctor is implementation of C(-,-) bifunctor.
 

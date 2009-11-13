@@ -1,12 +1,10 @@
 use strict;
-use Test::More tests => 3;
+use Test::More tests => 2;
 use Math::Category::Impl::SimpleMorphism;
 use Math::Category::Impl::OppositeMorphism;
 use Math::Category::Impl::Bimorphism;
 use Math::Category::Impl::SubroutineMorphism;
-
-my $HOM = 'Math::Category::Impl::HomBifunctor';
-use_ok $HOM;
+use Math::Category::Impl::Functors qw($HOM_BIFUNCTOR);
 
 my $morph12 = Math::Category::Impl::SimpleMorphism->new(
     source_object => '1',
@@ -22,8 +20,7 @@ my $morph34 = Math::Category::Impl::SimpleMorphism->new(
 );
 # $morph41 need not to instantiate though it's existed in this category.
 
-my $functor = $HOM->new;
-my $sub_morph = $functor->apply(
+my $sub_morph = $HOM_BIFUNCTOR->(
 	Math::Category::Impl::Bimorphism->new(
 		morphism1 => Math::Category::Impl::OppositeMorphism->new(
 			morphism => $morph12,

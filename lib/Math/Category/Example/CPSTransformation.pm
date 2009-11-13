@@ -4,7 +4,7 @@ use warnings;
 use Math::Category::Impl::OppositeMorphism;
 use Math::Category::Impl::Bimorphism;
 use Math::Category::Impl::SubroutineMorphism;
-use Math::Category::Impl::HomBifunctor;
+use Math::Category::Impl::Functors qw($HOM_BIFUNCTOR);
 
 use Sub::Exporter -setup => {
     exports => [ qw(cps_transformation) ],
@@ -14,9 +14,8 @@ use Sub::Exporter -setup => {
 sub cps_transformation {
     my $f = shift;
 
-    my $functor = Math::Category::Impl::HomBifunctor->new;
     my $morph = Math::Category::Impl::SubroutineMorphism->new_with_sub( $f );
-    my $hom_morph = $functor->apply(
+    my $hom_morph = $HOM_BIFUNCTOR->(
         Math::Category::Impl::Bimorphism->new(
             morphism1 => Math::Category::Impl::OppositeMorphism->new(
                 morphism => $morph,
