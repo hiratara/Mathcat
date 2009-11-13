@@ -3,6 +3,8 @@ use Math::Category::Impl::AnyFunctor;
 use Math::Category::Impl::AnyNaturalTransformation;
 use Math::Category::Impl::FunctorMorphism;
 use Math::Category::Impl::SubroutineMorphism;
+use Math::Category::Impl::Bimorphism;
+use Math::Category::Impl::OppositeMorphism;
 use base Exporter::;
 our @EXPORT_OK = qw($HOM_BIFUNCTOR $YONEDA_EMBEDDING);
 
@@ -21,22 +23,18 @@ our $HOM_BIFUNCTOR = Math::Category::Impl::AnyFunctor->new( sub {
 
 our $YONEDA_EMBEDDING = Math::Category::Impl::AnyFunctor->new( sub {
 	my ($op_morph) = @_;
-	# $op_morph is an arrow which is from id1 and id2
-
-	my $morph21 = $op_morph->morphism;
-	# $morph21->source is id2 and ->target is id1
 
 	return Math::Category::Impl::FunctorMorphism->new_with_nat(
 		Math::Category::Impl::AnyNaturalTransformation->new( sub {
 			my $id = shift;
 
-			return Math::Category::Impl::SubroutineMorphism
-			       ->new_with_sub( sub {
-				my $morph = shift;
-				# $morph->source should be id1
-				# $morph->target should be $id.
-				return $id . $morph . $morph21;
-			} );
+			# The component of $id is Hom( $po_morph, $id ).
+			return $HOM_BIFUNCTOR->(
+				Math::Category::Impl::Bimorphism->new(
+					morphism1 => $op_morph,
+					morphism2 => $id,
+				)
+			);
 		} )
 	);
 } );
