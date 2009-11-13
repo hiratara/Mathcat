@@ -2,6 +2,8 @@ package Math::Category::Functor;
 use Moose;
 our $VERSION = '0.01';
 
+use overload '&{}' => sub { my $s = shift; sub { $s->apply(@_); }; };
+
 sub apply { die "a mapping of morphisms."; }
 
 __PACKAGE__->meta->make_immutable;
