@@ -1,6 +1,6 @@
 package Math::Category::Impl::AnyFunctor;
 use Moose;
-
+our $VERSION = '0.01';
 extends 'Math::Category::Functor';
 with 'Math::Category::Role::Subroutish';
 
