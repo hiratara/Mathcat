@@ -1,7 +1,7 @@
 package Math::Category::Impl::NaturalTransformationFactory;
 use Moose;
 our $VERSION = '0.01';
-extends 'Math::Category::Skel::NaturalTransformation';
+extends 'Math::Category::NaturalTransformation';
 
 has component_sub => (
 	isa      => 'CodeRef',

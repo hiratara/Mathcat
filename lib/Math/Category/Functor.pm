@@ -1,4 +1,4 @@
-package Math::Category::Skel::Functor;
+package Math::Category::Functor;
 use Moose;
 our $VERSION = '0.01';
 
@@ -12,15 +12,15 @@ __END__
 
 =head1 NAME
 
-Math::Category::Skel::Functor - Abstract class for functor.
+Math::Category::Functor - Abstract class for functor.
 
 =head1 SYNOPSIS
 
-  use Math::Category::Skel::Functor;
+  use Math::Category::Functor;
 
 =head1 DESCRIPTION
 
-Math::Category::Skel::Functor is an abstract class for functor.
+Math::Category::Functor is an abstract class for functor.
 You should implement methods of this class to implement a functor.
 
 =head1 AUTHOR

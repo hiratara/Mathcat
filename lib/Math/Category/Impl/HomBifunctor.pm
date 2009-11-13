@@ -5,7 +5,7 @@ use Math::Category::Impl::Bimorphism;
 use Math::Category::Impl::SubroutineMorphism;
 our $VERSION = '0.01';
 
-extends 'Math::Category::Skel::Functor';
+extends 'Math::Category::Functor';
 
 # A mapping of morphisms.
 sub apply {

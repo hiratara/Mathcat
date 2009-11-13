@@ -1,10 +1,10 @@
 package Math::Category::Impl::OppositeMorphism;
 use Moose;
 our $VERSION = '0.01';
-extends 'Math::Category::Skel::Morphism';
+extends 'Math::Category::Morphism';
 
 has morphism   => (
-	isa      => 'Math::Category::Skel::Morphism',
+	isa      => 'Math::Category::Morphism',
 	is       => 'ro',
 	required => 1,
 );

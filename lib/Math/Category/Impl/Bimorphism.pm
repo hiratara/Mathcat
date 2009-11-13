@@ -1,16 +1,16 @@
 package Math::Category::Impl::Bimorphism;
 use Moose;
 our $VERSION = '0.01';
-extends 'Math::Category::Skel::Morphism';
+extends 'Math::Category::Morphism';
 
 has morphism1   => (
-	isa      => 'Math::Category::Skel::Morphism',
+	isa      => 'Math::Category::Morphism',
 	is       => 'ro',
 	required => 1,
 );
 
 has morphism2   => (
-	isa      => 'Math::Category::Skel::Morphism',
+	isa      => 'Math::Category::Morphism',
 	is       => 'ro',
 	required => 1,
 );

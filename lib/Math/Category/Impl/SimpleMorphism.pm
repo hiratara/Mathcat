@@ -1,7 +1,7 @@
 package Math::Category::Impl::SimpleMorphism;
 use Moose;
 our $VERSION = '0.01';
-extends 'Math::Category::Skel::Morphism';
+extends 'Math::Category::Morphism';
 
 has source_object => (
 	isa      => 'Str',

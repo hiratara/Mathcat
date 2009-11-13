@@ -2,7 +2,7 @@ package Math::Category::Impl::SubroutineMorphism;
 use Moose;
 our $VERSION = '0.01';
 
-extends 'Math::Category::Skel::Morphism';
+extends 'Math::Category::Morphism';
 
 has subroutines => (
 	isa      => 'ArrayRef[CodeRef]',
@@ -48,15 +48,15 @@ __END__
 
 =head1 NAME
 
-Math::Category::Skel::Morphism - Abstract class for morphism.
+Math::Category::Morphism - Abstract class for morphism.
 
 =head1 SYNOPSIS
 
-  use Math::Category::Skel::Morphism;
+  use Math::Category::Morphism;
 
 =head1 DESCRIPTION
 
-Math::Category::Skel::Morphism is an abstract class for morphism.
+Math::Category::Morphism is an abstract class for morphism.
 You should implement methods of this class to implement a morphism.
 
 =head1 AUTHOR
