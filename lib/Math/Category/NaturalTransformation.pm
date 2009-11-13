@@ -2,6 +2,8 @@ package Math::Category::NaturalTransformation;
 use Moose;
 our $VERSION = '0.01';
 
+use overload '&{}' => sub { my $s = shift; sub { $s->component(@_); }; };
+
 # my $morph = $nt->component( $id )
 sub component { die "the morphism for id arrow."; }
 
