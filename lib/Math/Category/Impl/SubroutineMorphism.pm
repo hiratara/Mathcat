@@ -1,5 +1,7 @@
 package Math::Category::Impl::SubroutineMorphism;
 use Moose;
+use Sub::Exporter;
+use overload '&{}' => sub { my $s = shift; sub { $s->subroutine->(@_); }; };
 our $VERSION = '0.01';
 
 extends 'Math::Category::Morphism';
@@ -10,7 +12,17 @@ has subroutines => (
 	required => 1,
 );
 
-our $ID = __PACKAGE__->new_with_sub( sub { @_ } );
+my @export = qw/sub_morph/;
+Sub::Exporter::setup_exporter( { 
+	exports => \@export,
+	groups  => { default => \@export, }, 
+} );
+
+sub sub_morph(&){
+	return __PACKAGE__->new_with_sub( @_ );
+}
+
+our $ID = sub_morph { @_ };
 
 sub new_with_sub {
 	my $class = shift;
