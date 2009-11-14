@@ -18,7 +18,7 @@ sub cps_transformation {
 
     # Get natural transformation corresponded to $f.
     my $fun_morph = $YONEDA_EMBEDDING->( $morph );
-    my $nat = $fun_morph->natural_transformation;
+    my $nat = $fun_morph->nat;
 
     return sub {
         my ($cont, @params) = @_;

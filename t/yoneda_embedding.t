@@ -11,7 +11,7 @@ my $morph13 = simple_morph '1' => '3';
 my $func_morph = $YONEDA_EMBEDDING->( op $morph21 );
 
 # Actually it's a natural transformation.
-my $nat       = $func_morph->natural_transformation;
+my $nat       = $func_morph->nat;
 
 # Get component morphism corresponding to an object.
 my $sub_morph = $nat->( $morph13->target );
