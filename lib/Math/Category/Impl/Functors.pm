@@ -4,15 +4,15 @@ use Math::Category::Impl::AnyNaturalTransformation;
 use Math::Category::Impl::FunctorMorphism;
 use Math::Category::Impl::SubroutineMorphism;
 use Math::Category::Impl::Bimorphism;
-use Math::Category::Impl::OppositeMorphism;
+use Math::Category::Impl::OppositeMorphism qw/op/;
 use base Exporter::;
 our @EXPORT_OK = qw($HOM_BIFUNCTOR $YONEDA_EMBEDDING);
 
 our $HOM_BIFUNCTOR = functor {
 	my ($bimorphism) = @_;
-	# morphism1 in the opposite category
-	my $morph1 = $bimorphism->morphism1->morphism;
-	my $morph2 = $bimorphism->morphism2;
+	# morphism1 is one of the C^op.
+	my $morph1 = op $bimorphism->morph1;
+	my $morph2 = $bimorphism->morph2;
 
 	return sub_morph { $morph2 . $_[0] . $morph1 };
 };
@@ -26,12 +26,7 @@ our $YONEDA_EMBEDDING = functor {
 			my $id = shift;
 
 			# The component of $id is Hom( $po_morph, $id ).
-			return $HOM_BIFUNCTOR->(
-				Math::Category::Impl::Bimorphism->new(
-					morphism1 => $op_morph,
-					morphism2 => $id,
-				)
-			);
+			return $HOM_BIFUNCTOR->( bi_morph $op_morph, $id );
 		}, 
 	);
 };

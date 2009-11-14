@@ -15,14 +15,14 @@ BEGIN { use_ok 'Math::Category::Impl::Bimorphism'; };
         sub_morph { $_[0] + 10 },
     );
     # Check the source.
-    is $morph->source->morphism1->source_object,  '1';
-    is $morph->source->morphism1->target_object,  '1';
-    is $morph->source->morphism2->(20), 20;  # id
+    is $morph->source->morph1->source_object,  '1';
+    is $morph->source->morph1->target_object,  '1';
+    is $morph->source->morph2->(20), 20;  # id
 
     # Check the target.
-    is $morph->target->morphism1->source_object,  '2';
-    is $morph->target->morphism1->target_object,  '2';
-    is $morph->target->morphism2->(30), 30;  # id
+    is $morph->target->morph1->source_object,  '2';
+    is $morph->target->morph1->target_object,  '2';
+    is $morph->target->morph2->(30), 30;  # id
 }
 
 
@@ -43,7 +43,7 @@ BEGIN { use_ok 'Math::Category::Impl::Bimorphism'; };
         ), 
     );
     my $morph3 = $morph2 . $morph1;
-    is $morph3->morphism1->(1), '1111';
-    is $morph3->morphism2->source_object  ,    '3';
-    is $morph3->morphism2->target_object  ,    '5';
+    is $morph3->morph1->(1), '1111';
+    is $morph3->morph2->source_object  ,    '3';
+    is $morph3->morph2->target_object  ,    '5';
 }

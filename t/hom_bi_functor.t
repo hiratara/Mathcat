@@ -20,12 +20,7 @@ my $morph34 = Math::Category::Impl::SimpleMorphism->new(
 );
 # $morph41 need not to instantiate though it's existed in this category.
 
-my $sub_morph = $HOM_BIFUNCTOR->(
-	Math::Category::Impl::Bimorphism->new(
-		morphism1 => ( op $morph12 ),
-		morphism2 => $morph34,
-	)
-);
+my $sub_morph = $HOM_BIFUNCTOR->( bi_morph +(op $morph12), $morph34 );
 
 # hom-functor made the subroutine which composes morphisms.
 # Concretely, morph34 . morph23 . morph12 => morph14

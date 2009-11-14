@@ -2,7 +2,6 @@ package Math::Category::Example::CPSTransformation;
 use strict;
 use warnings;
 use Math::Category::Impl::OppositeMorphism qw/op/;
-use Math::Category::Impl::Bimorphism;
 use Math::Category::Impl::SubroutineMorphism;
 use Math::Category::Impl::Functors qw($YONEDA_EMBEDDING);
 
