@@ -28,20 +28,20 @@ sub opposite ($){
 }
 
 # short cut
-sub op($); *op = \&opposite;
+*op = \&opposite;
 
 sub source      { 
 	my $self = shift;
-	return op $self->morphism->target;
+	return opposite $self->morphism->target;
 }
 sub target      { 
 	my $self = shift;
-	return op $self->morphism->source;
+	return opposite $self->morphism->source;
 }
 sub composition {
 	my $self     = shift;
 	my $morphism = shift;
-	return op( $morphism->morphism . $self->morphism ); 
+	return opposite( $morphism->morphism . $self->morphism ); 
 }
 
 __PACKAGE__->meta->make_immutable;
