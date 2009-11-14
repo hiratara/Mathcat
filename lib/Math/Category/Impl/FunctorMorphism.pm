@@ -3,6 +3,7 @@ use Moose;
 use Sub::Exporter;
 use Math::Category::Impl::AnyNaturalTransformation 
                                                 -all => { -prefix => 'any_', };
+use overload '&{}' => sub { my $s = shift; sub { $s->nat->(@_); }; };
 our $VERSION = '0.01';
 
 extends 'Math::Category::Morphism';

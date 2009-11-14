@@ -18,7 +18,6 @@ sub cps_transformation {
 
     # Get natural transformation corresponded to $f.
     my $fun_morph = $YONEDA_EMBEDDING->( $morph );
-    my $nat = $fun_morph->nat;
 
     return sub {
         my ($cont, @params) = @_;
@@ -28,7 +27,7 @@ sub cps_transformation {
         my $cont_morph = &sub_morph( $cont );
 
         # Get component of target of $cont.
-        my $component = $nat->( $cont_morph->target );
+        my $component = $fun_morph->( $cont_morph->target );
 
         # Get CPS tarnsformed subroutine
         my $cps_transformed = $component->( $cont_morph );
