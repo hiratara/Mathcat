@@ -1,7 +1,9 @@
 package Math::Category::Impl::FunctorMorphism;
 use Moose;
 our $VERSION = '0.01';
-use Math::Category::Impl::AnyNaturalTransformation;
+use Math::Category::Impl::AnyNaturalTransformation -all => {
+	-prefix => 'any_',
+};
 
 extends 'Math::Category::Morphism';
 
@@ -11,10 +13,10 @@ has natural_transformation => (
 	required => 1,
 );
 
-our $ID = Math::Category::Impl::AnyNaturalTransformation->new( sub {
+our $ID = any_nat {
 	my $id;
 	return $id;
-} );
+};
 
 sub new_with_nat {
 	my $class = shift;
@@ -28,11 +30,11 @@ sub composition {
 	my $self  = shift;
 	my $morph = shift;
 	return __PACKAGE__->new_with_nat(
-		Math::Category::Impl::AnyNaturalTransformation( sub {
+		any_nat {
 			my $id = shift;
 			return $self->natural_transformation->($id) . 
 			       $morph->natural_transformation->($id);
-		} )
+		}, 
 	);
 }
 

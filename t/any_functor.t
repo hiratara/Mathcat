@@ -3,8 +3,9 @@ use warnings;
 use Test::More tests => 3;
 use Math::Category::Impl::SimpleMorphism;
 
-use_ok 'Math::Category::Impl::AnyFunctor';
-my $id = Math::Category::Impl::AnyFunctor->new( sub { $_[0]; } );
+BEGIN { use_ok 'Math::Category::Impl::AnyFunctor'; };
+
+my $id = functor { $_[0]; };
 my $morph12 = Math::Category::Impl::SimpleMorphism->new(
     source_object => '1',
     target_object => '2',

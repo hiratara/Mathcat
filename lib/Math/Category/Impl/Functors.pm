@@ -8,7 +8,7 @@ use Math::Category::Impl::OppositeMorphism;
 use base Exporter::;
 our @EXPORT_OK = qw($HOM_BIFUNCTOR $YONEDA_EMBEDDING);
 
-our $HOM_BIFUNCTOR = Math::Category::Impl::AnyFunctor->new( sub {
+our $HOM_BIFUNCTOR = functor {
 	my ($bimorphism) = @_;
 	# morphism1 in the opposite category
 	my $morph1 = $bimorphism->morphism1->morphism;
@@ -18,14 +18,14 @@ our $HOM_BIFUNCTOR = Math::Category::Impl::AnyFunctor->new( sub {
 		my $morph = shift;
 		return $morph2 . $morph . $morph1;
 	} );
-} );
+};
 
 
-our $YONEDA_EMBEDDING = Math::Category::Impl::AnyFunctor->new( sub {
+our $YONEDA_EMBEDDING = functor {
 	my ($op_morph) = @_;
 
 	return Math::Category::Impl::FunctorMorphism->new_with_nat(
-		Math::Category::Impl::AnyNaturalTransformation->new( sub {
+		natural_transformation {
 			my $id = shift;
 
 			# The component of $id is Hom( $po_morph, $id ).
@@ -35,9 +35,9 @@ our $YONEDA_EMBEDDING = Math::Category::Impl::AnyFunctor->new( sub {
 					morphism2 => $id,
 				)
 			);
-		} )
+		}, 
 	);
-} );
+};
 
 
 1;

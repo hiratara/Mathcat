@@ -3,13 +3,12 @@ use warnings;
 use Math::Category::Impl::SubroutineMorphism;
 use Test::More tests => 2;
 
-my $NTF = 'Math::Category::Impl::AnyNaturalTransformation';
-use_ok $NTF;
+BEGIN { use_ok 'Math::Category::Impl::AnyNaturalTransformation', qw/nat/; };
 
-my $nt = $NTF->new( sub {
+my $nt = nat {
     my $id = shift;
     return $id;
-} );
+};
 
 # natural transformation as id of category of functors
 my $comp = $nt->( $Math::Category::Impl::SubroutineMorphism::ID );
