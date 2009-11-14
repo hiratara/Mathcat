@@ -1,7 +1,7 @@
 use strict;
 use Test::More tests => 2;
 use Math::Category::Impl::SimpleMorphism;
-use Math::Category::Impl::OppositeMorphism;
+use Math::Category::Impl::OppositeMorphism qw/op/;
 use Math::Category::Impl::Bimorphism;
 use Math::Category::Impl::SubroutineMorphism;
 use Math::Category::Impl::Functors qw($HOM_BIFUNCTOR);
@@ -22,9 +22,7 @@ my $morph34 = Math::Category::Impl::SimpleMorphism->new(
 
 my $sub_morph = $HOM_BIFUNCTOR->(
 	Math::Category::Impl::Bimorphism->new(
-		morphism1 => Math::Category::Impl::OppositeMorphism->new(
-			morphism => $morph12,
-		),
+		morphism1 => ( op $morph12 ),
 		morphism2 => $morph34,
 	)
 );

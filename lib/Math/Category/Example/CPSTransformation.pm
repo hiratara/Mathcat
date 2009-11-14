@@ -1,7 +1,7 @@
 package Math::Category::Example::CPSTransformation;
 use strict;
 use warnings;
-use Math::Category::Impl::OppositeMorphism;
+use Math::Category::Impl::OppositeMorphism qw/op/;
 use Math::Category::Impl::Bimorphism;
 use Math::Category::Impl::SubroutineMorphism;
 use Math::Category::Impl::Functors qw($YONEDA_EMBEDDING);
@@ -15,10 +15,7 @@ sub cps_transformation {
     my $f = shift;
 
     # Wrap as morphism of Sets^op
-    my $morph = Math::Category::Impl::OppositeMorphism->new(
-        # Disabled prototype check
-        morphism => &sub_morph( $f ), 
-    );
+    my $morph = op &sub_morph( $f );  # Disabled prototype check
 
     # Get natural transformation corresponded to $f.
     my $fun_morph = $YONEDA_EMBEDDING->( $morph );

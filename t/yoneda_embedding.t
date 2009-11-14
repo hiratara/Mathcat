@@ -1,7 +1,7 @@
 use strict;
 use Test::More tests => 2;
 use Math::Category::Impl::SimpleMorphism;
-use Math::Category::Impl::OppositeMorphism;
+use Math::Category::Impl::OppositeMorphism qw(op);
 use Math::Category::Impl::Functors qw($YONEDA_EMBEDDING);
 
 my $morph21 = Math::Category::Impl::SimpleMorphism->new(
@@ -14,11 +14,7 @@ my $morph13 = Math::Category::Impl::SimpleMorphism->new(
 );
 
 # Apply Yoneda functor.
-my $func_morph = $YONEDA_EMBEDDING->(
-	Math::Category::Impl::OppositeMorphism->new(
-		morphism => $morph21,
-	),
-);
+my $func_morph = $YONEDA_EMBEDDING->( op $morph21 );
 
 # Actually it's a natural transformation.
 my $nat       = $func_morph->natural_transformation;
