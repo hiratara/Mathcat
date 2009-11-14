@@ -1,6 +1,6 @@
 package Math::Category::Impl::Functors;
 use Math::Category::Impl::AnyFunctor;
-use Math::Category::Impl::AnyNaturalTransformation;
+use Math::Category::Impl::AnyNaturalTransformation qw/nat/;
 use Math::Category::Impl::FunctorMorphism;
 use Math::Category::Impl::SubroutineMorphism;
 use Math::Category::Impl::Bimorphism;
@@ -21,14 +21,12 @@ our $HOM_BIFUNCTOR = functor {
 our $YONEDA_EMBEDDING = functor {
 	my ($op_morph) = @_;
 
-	return Math::Category::Impl::FunctorMorphism->new_with_nat(
-		natural_transformation {
-			my $id = shift;
+	return functor_morph( nat {
+		my $id = shift;
 
-			# The component of $id is Hom( $po_morph, $id ).
-			return $HOM_BIFUNCTOR->( bi_morph $op_morph, $id );
-		}, 
-	);
+		# The component of $id is Hom( $po_morph, $id ).
+		return $HOM_BIFUNCTOR->( bi_morph $op_morph, $id );
+	} );
 };
 
 
