@@ -2,18 +2,13 @@ use strict;
 use Test::More tests => 9;
 use Math::Category::Impl::SimpleMorphism;
 
-# for shortcut
-my $OPPOSITE = 'Math::Category::Impl::OppositeMorphism';
-
-use_ok $OPPOSITE;
+BEGIN { use_ok 'Math::Category::Impl::OppositeMorphism'; };
 
 # TEST 1: source and target
 {
-    my $morph = $OPPOSITE->new( 
-        morphism => Math::Category::Impl::SimpleMorphism->new(
-            source_object => '1',
-            target_object => '2',
-        ), 
+    my $morph = opposite +(Math::Category::Impl::SimpleMorphism)->new(
+        source_object => '1',
+        target_object => '2',
     );
     is $morph->source->morphism->source_object,  '2';
     is $morph->source->morphism->target_object,  '2';
@@ -24,17 +19,13 @@ use_ok $OPPOSITE;
 
 # TEST 2: composition
 {
-    my $morph1 = $OPPOSITE->new( 
-        morphism => Math::Category::Impl::SimpleMorphism->new(
-            source_object => '2',
-            target_object => '3',
-        ), 
+    my $morph1 = opposite 'Math::Category::Impl::SimpleMorphism'->new(
+        source_object => '2',
+        target_object => '3',
     );
-    my $morph2 = $OPPOSITE->new( 
-        morphism => Math::Category::Impl::SimpleMorphism->new(
-            source_object => '1',
-            target_object => '2',
-        ), 
+    my $morph2 = opposite 'Math::Category::Impl::SimpleMorphism'->new(
+        source_object => '1',
+        target_object => '2',
     );
 
     my $morph3 = $morph2 . $morph1;
