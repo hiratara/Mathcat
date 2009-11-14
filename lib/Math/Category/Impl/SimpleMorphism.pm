@@ -1,6 +1,8 @@
 package Math::Category::Impl::SimpleMorphism;
 use Moose;
+use Sub::Exporter;
 our $VERSION = '0.01';
+
 extends 'Math::Category::Morphism';
 
 has source_object => (
@@ -15,27 +17,33 @@ has target_object   => (
 	required => 1,
 );
 
+# shortcut
+*from = \&source_object;
+*to   = \&target_object;
+
+
+my @export = qw/simple_morph/;
+Sub::Exporter::setup_exporter( { 
+	exports => \@export,
+	groups  => { default => \@export, }, 
+} );
+
+sub simple_morph ($$){
+	__PACKAGE__->new( source_object => $_[0], target_object => $_[1], );
+}
+
 sub source      { 
 	my $self = shift;
-	return __PACKAGE__->new(
-		source_object => $self->source_object,
-		target_object => $self->source_object,
-	);
+	return simple_morph $self->from => $self->from;
 }
 sub target      { 
 	my $self = shift;
-	return __PACKAGE__->new(
-		source_object => $self->target_object,
-		target_object => $self->target_object,
-	);
+	return simple_morph $self->to => $self->to;
 }
 sub composition {
 	my $self     = shift;
 	my $morphism = shift;
-	return __PACKAGE__->new(
-		source_object => $morphism->source_object,
-		target_object => $self->target_object,
-	);
+	return simple_morph $morphism->from => $self->to;
 }
 
 __PACKAGE__->meta->make_immutable;
