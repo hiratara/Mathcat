@@ -16,9 +16,8 @@ sub cps_transformation {
 
     # Wrap as morphism of Sets^op
     my $morph = Math::Category::Impl::OppositeMorphism->new(
-        morphism => Math::Category::Impl::SubroutineMorphism->new_with_sub( 
-            $f 
-        ),
+        # Disabled prototype check
+        morphism => &sub_morph( $f ), 
     );
 
     # Get natural transformation corresponded to $f.
@@ -29,15 +28,14 @@ sub cps_transformation {
         my ($cont, @params) = @_;
 
         # Wrap as morphism of Sets
-        my $cont_morph = Math::Category::Impl::SubroutineMorphism
-                         ->new_with_sub( $cont );
+        # ( Disabled prototype check )
+        my $cont_morph = &sub_morph( $cont );
 
         # Get component of target of $cont.
         my $component = $nat->( $cont_morph->target );
-        my $sub       = $component->subroutine;
 
         # Get CPS tarnsformed subroutine
-        my $cps_transformed = $sub->( $cont_morph )->subroutine;
+        my $cps_transformed = $component->( $cont_morph );
 
         # Apply arguments
         return $cps_transformed->(@params);

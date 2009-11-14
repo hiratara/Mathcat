@@ -31,7 +31,7 @@ my $sub_morph = $HOM_BIFUNCTOR->(
 
 # hom-functor made the subroutine which composes morphisms.
 # Concretely, morph34 . morph23 . morph12 => morph14
-my $morph41 = $sub_morph->subroutine->($morph23);
+my $morph41 = $sub_morph->($morph23);
 
 is $morph41->source->source_object, '1';
 is $morph41->target->source_object, '4';

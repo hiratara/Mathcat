@@ -14,10 +14,7 @@ our $HOM_BIFUNCTOR = functor {
 	my $morph1 = $bimorphism->morphism1->morphism;
 	my $morph2 = $bimorphism->morphism2;
 
-	return Math::Category::Impl::SubroutineMorphism->new_with_sub( sub {
-		my $morph = shift;
-		return $morph2 . $morph . $morph1;
-	} );
+	return sub_morph { $morph2 . $_[0] . $morph1 };
 };
 
 

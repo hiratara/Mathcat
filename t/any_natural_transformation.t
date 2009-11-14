@@ -12,4 +12,4 @@ my $nt = nat {
 
 # natural transformation as id of category of functors
 my $comp = $nt->( $Math::Category::Impl::SubroutineMorphism::ID );
-is $comp->subroutine->('hoge'), 'hoge';
+is $comp->('hoge'), 'hoge';
