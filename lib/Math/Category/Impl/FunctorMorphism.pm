@@ -27,19 +27,28 @@ sub functor_morph ($){
 	__PACKAGE__->new_with_nat( @_ );
 }
 
-our $ID = any_nat {
-	my $id;
-	return $id;
-};
-
 sub new_with_nat {
 	my $class = shift;
 	my ( $natural_transformation ) = @_;
 	return $class->new( natural_transformation => $natural_transformation );
 }
 
-sub source      { return $ID; }
-sub target      { return $ID; }
+sub source { 
+	my $self = shift;
+	return functor_morph any_nat {
+		my $id = shift;
+		return $self->( $id )->source;
+	};
+}
+
+sub target { 
+	my $self = shift;
+	return functor_morph any_nat {
+		my $id = shift;
+		return $self->( $id )->target;
+	};
+}
+
 sub composition {
 	my $self  = shift;
 	my $morph = shift;
