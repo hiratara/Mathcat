@@ -17,7 +17,7 @@ our $LIST_MONAD = Math::Category::Monad->new(
 	},
 
 	# All components were same for any ids in the category of subroutines.
-	eta     => nat { sub_morph { [ map { @$_ } @_ ] } },
+	eta     => nat { sub_morph { map { @$_ } @_ } },
 	mu      => nat { sub_morph { [ @_ ] } },
 );
 

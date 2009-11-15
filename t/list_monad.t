@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-use Test::More tests => 3;
+use Test::More tests => 4;
 use Math::Category::Impl::SubroutineMorphism;
 use Math::Category::Impl::Monads qw/$LIST_MONAD/;
 
@@ -17,3 +17,8 @@ is_deeply [ $LIST_MONAD->eta->( $id_sub )->(
               [ [ 'a', 'b', 'c' ], [ 'c', 'd', 'e' ] ], [ [ 'f', 'g' ] ],
           ) ], 
           [ [ 'a', 'b', 'c' ], [ 'c', 'd', 'e' ], [ 'f', 'g' ] ];
+
+is_deeply [ $LIST_MONAD->eta->( $id_sub )->( 
+              [ ['a'], ['b'], ['c'] ], [ ['c'], ['d'], ['e'] ],
+          ) ], 
+          [ ['a'], ['b'], ['c'], ['c'], ['d'], ['e'] ];
