@@ -1,5 +1,6 @@
 package Math::Category::NaturalTransformation;
 use Moose;
+use Sub::Exporter;
 
 BEGIN{ sub component; } # XXX Because of mutual dependencies.
 use Math::Category::Impl::AnyNaturalTransformation qw/nat/;
@@ -7,6 +8,12 @@ our $VERSION = '0.01';
 
 use overload '&{}' => sub { my $s = shift; sub { $s->component(@_); }; },
              '.'   => "composition";
+
+my @export = qw/nat_funct funct_nat/;
+Sub::Exporter::setup_exporter( { 
+	exports => \@export,
+	groups  => { default => \@export, }, 
+} );
 
 # my $morph = $nt->component( $id )
 sub component { die "the morphism for id arrow."; }
@@ -18,6 +25,24 @@ sub composition {
 	return nat {
 		my $id = shift;
 		return $self->( $id ) . $nat->( $id );
+	};
+}
+
+# A composition nat of a nat and a functor.
+sub nat_funct($$){
+	my ($nat, $funct) = @_;
+	return nat {
+		my $id = shift;
+		return $nat->( $funct->($id) );
+	};
+}
+
+# A composition nat of a functor and a nat.
+sub funct_nat($$){
+	my ($funct, $nat) = @_;
+	return nat {
+		my $id = shift;
+		return $funct->( $nat->( $id ) );
 	};
 }
 
