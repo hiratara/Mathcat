@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-use Test::More tests => 6;
+use Test::More tests => 8;
 use Math::Category::Impl::SubroutineMorphism;
 use Math::Category::NaturalTransformation;
 use Math::Category::Impl::Monads qw/$LIST_MONAD/;
@@ -32,3 +32,16 @@ my $nat2 = $LIST_MONAD->mu .
 
 is_deeply [$nat1->( $id_sub )->( ['AZC'] )], [ ['AZC'] ];
 is_deeply [$nat2->( $id_sub )->([1], [2])], [[1], [2]];
+
+# Monad raw (associative)
+my $nat3 = $LIST_MONAD->mu .
+          (funct_nat $LIST_MONAD->functor, $LIST_MONAD->mu     );
+my $nat4 = $LIST_MONAD->mu .
+          (nat_funct $LIST_MONAD->mu     , $LIST_MONAD->functor);
+
+is_deeply [$nat3->( $id_sub )->(
+	[ [ ['A'], ['B'] ], [ [ 'C1', 'C2' ] ]  ], [ [ [ 'D' ] ] ]
+)], [ ['A'], ['B'], ['C1', 'C2'], ['D'] ];
+is_deeply [$nat4->( $id_sub )->(
+	[ [ ['A'], ['B'] ], [ [ 'C1', 'C2' ] ]  ], [ [ [ 'D' ] ] ]
+)], [ ['A'], ['B'], ['C1', 'C2'], ['D'] ];
