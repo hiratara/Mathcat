@@ -19,7 +19,7 @@ sub source      {
 	my $self = shift;
 	return __PACKAGE__->new(
 		monad       => $self->monad,
-		morphism    => $self->monad->mu->( $self->morphism->source ),
+		morphism    => $self->monad->eta->( $self->morphism->source ),
 		orig_target => $self->morphism->source,
 	);
 }
@@ -27,7 +27,7 @@ sub target      {
 	my $self = shift;
 	return __PACKAGE__->new(
 		monad       => $self->monad,
-		morphism    => $self->monad->mu->( $self->orig_target ),
+		morphism    => $self->monad->eta->( $self->orig_target ),
 		orig_target => $self->orig_target,
 	);
 }
@@ -37,7 +37,7 @@ sub composition {
 
 	return __PACKAGE__->new(
 		monad       => $self->monad,
-		morphism    => $self->monad->eta->( $self->orig_target ) . 
+		morphism    => $self->monad->mu->( $self->orig_target ) . 
 		               $self->monad->( $self->morphism ) . $morphism->morphism,
 		orig_target => $self->orig_target,
 	);
