@@ -1,10 +1,26 @@
 package Math::Category::Functor;
 use Moose;
+# XXX Because of mutual dependencies.
+BEGIN { sub apply; } use Math::Category::Impl::AnyFunctor;
 our $VERSION = '0.01';
 
-use overload '&{}' => sub { my $s = shift; sub { $s->apply(@_); }; };
+# Definition of composition operator
+use overload '&{}' => sub { my $s = shift; sub { $s->apply(@_); }; },
+             '.'   => "composition";
 
 sub apply { die "a mapping of morphisms."; }
+
+sub composition {
+	my $self = shift;
+	my ( $funct ) = @_;
+
+	# XXX Shouldn't use the recursive implementation.
+	return functor {
+		my $morph = shift;;
+		return $self->( $funct->( $morph ) );
+	};
+}
+
 
 __PACKAGE__->meta->make_immutable;
 no  Moose;

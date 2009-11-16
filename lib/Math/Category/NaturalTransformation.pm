@@ -1,11 +1,25 @@
 package Math::Category::NaturalTransformation;
 use Moose;
+
+BEGIN{ sub component; } # XXX Because of mutual dependencies.
+use Math::Category::Impl::AnyNaturalTransformation qw/nat/;
 our $VERSION = '0.01';
 
-use overload '&{}' => sub { my $s = shift; sub { $s->component(@_); }; };
+use overload '&{}' => sub { my $s = shift; sub { $s->component(@_); }; },
+             '.'   => "composition";
 
 # my $morph = $nt->component( $id )
 sub component { die "the morphism for id arrow."; }
+
+sub composition {
+	my $self = shift;
+	my ( $nat ) = @_;
+
+	return nat {
+		my $id = shift;
+		return $self->( $id ) . $nat->( $id );
+	};
+}
 
 __PACKAGE__->meta->make_immutable;
 no  Moose;
