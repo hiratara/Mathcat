@@ -1,6 +1,8 @@
 use strict;
 use Test::More tests => 17;
 use Math::Category::Impl::SimpleMorphism;
+# XXX Must use NT earlier than ANT because of dependencies. Too bad!!
+use Math::Category::NaturalTransformation;
 use Math::Category::Impl::AnyNaturalTransformation qw/nat/;
 
 # for shortcut

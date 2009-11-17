@@ -52,10 +52,7 @@ sub target {
 sub composition {
 	my $self  = shift;
 	my $morph = shift;
-	return functor_morph( any_nat {
-		my $id = shift;
-		return $self->nat->($id) . $morph->nat->($id);
-	} );
+	return functor_morph $self->nat . $morph->nat;
 }
 
 __PACKAGE__->meta->make_immutable;
