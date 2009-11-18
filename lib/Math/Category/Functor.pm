@@ -29,11 +29,8 @@ sub composition {
 	my $self = shift;
 	my ( $funct ) = @_;
 
-	# XXX Shouldn't use the recursive implementation.
-	return functor {
-		my $morph = shift;;
-		return $self->( $funct->( $morph ) );
-	};
+	# Avoid prototype checks.
+	return &functor( $self->impl . $funct->impl );
 }
 
 __PACKAGE__->meta->make_immutable;
