@@ -6,7 +6,9 @@ use Math::Category::Morphism::Subroutine;
 use Math::Category::Morphism::Bimorphism;
 use Math::Category::Morphism::Opposite qw/op/;
 use base Exporter::;
-our @EXPORT_OK = qw($HOM_BIFUNCTOR $YONEDA_EMBEDDING);
+our @EXPORT_OK = qw(
+	$HOM_BIFUNCTOR $YONEDA_EMBEDDING $LIST_FUNCTOR
+);
 
 our $HOM_BIFUNCTOR = functor {
 	my ($bimorphism) = @_;
@@ -29,6 +31,11 @@ our $YONEDA_EMBEDDING = functor {
 	} );
 };
 
+
+our $LIST_FUNCTOR = functor {
+	my $sub_morph = shift;
+	return sub_morph { map { [ $sub_morph->( @$_ ) ] } @_ };
+};
 
 1;
 
