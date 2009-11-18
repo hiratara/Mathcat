@@ -1,9 +1,8 @@
 package Math::Category::Morphism::Subroutine;
 use Moose;
 use Sub::Exporter;
-use Math::Category::Util::Subroutine;
 
-use overload '&{}' => sub { my $s = shift; sub { $s->subroutine->(@_); }; };
+use overload '&{}' => sub { my $s = shift; sub { $s->call(@_); }; };
 
 our $VERSION = '0.01';
 
@@ -32,10 +31,9 @@ sub composition {
 	return &sub_morph( $self->impl . $morphism->impl );
 }
 
-sub subroutine {
+sub call {
 	my $self = shift;
-
-	return $self->impl->subroutine;
+	return $self->impl->( @_ );
 }
 
 __PACKAGE__->meta->make_immutable;
