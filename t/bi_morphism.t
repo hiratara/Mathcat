@@ -3,7 +3,7 @@ use Test::More tests => 10;
 use Math::Category::Morphism::Simple;
 use Math::Category::Morphism::Subroutine;
 
-BEGIN { use_ok 'Math::Category::Impl::Bimorphism'; };
+BEGIN { use_ok 'Math::Category::Morphism::Bimorphism'; };
 
 # TEST 1: source and target
 {

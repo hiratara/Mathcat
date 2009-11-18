@@ -2,7 +2,7 @@ use strict;
 use Test::More tests => 2;
 use Math::Category::Morphism::Simple;
 use Math::Category::Morphism::Opposite qw/op/;
-use Math::Category::Impl::Bimorphism;
+use Math::Category::Morphism::Bimorphism;
 use Math::Category::Morphism::Subroutine;
 use Math::Category::Impl::Functors qw($HOM_BIFUNCTOR);
 

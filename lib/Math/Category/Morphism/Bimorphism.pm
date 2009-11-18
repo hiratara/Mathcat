@@ -1,4 +1,4 @@
-package Math::Category::Impl::Bimorphism;
+package Math::Category::Morphism::Bimorphism;
 use Moose;
 use Sub::Exporter;
 our $VERSION = '0.01';

@@ -3,7 +3,7 @@ use Math::Category::Functor;
 use Math::Category::NaturalTransformation qw/nat/;
 use Math::Category::Morphism::Functor;
 use Math::Category::Morphism::Subroutine;
-use Math::Category::Impl::Bimorphism;
+use Math::Category::Morphism::Bimorphism;
 use Math::Category::Morphism::Opposite qw/op/;
 use base Exporter::;
 our @EXPORT_OK = qw($HOM_BIFUNCTOR $YONEDA_EMBEDDING);
