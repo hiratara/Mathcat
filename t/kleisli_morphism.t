@@ -3,7 +3,7 @@ use warnings;
 use Test::More tests => 1;
 use Math::Category::Morphism::Kleisli;
 use Math::Category::Morphism::Subroutine;
-use Math::Category::Impl::Monads qw/$LIST_MONAD/;
+use Math::Category::Monad::Impls qw/$LIST_MONAD/;
 
 # Composition
 my $morph1 = Math::Category::Morphism::Kleisli->new(

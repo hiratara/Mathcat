@@ -3,7 +3,7 @@ use warnings;
 use Test::More tests => 8;
 use Math::Category::Morphism::Subroutine;
 use Math::Category::NaturalTransformation qw/nat_funct funct_nat/;
-use Math::Category::Impl::Monads qw/$LIST_MONAD/;
+use Math::Category::Monad::Impls qw/$LIST_MONAD/;
 
 # the Functor
 my $morph = $LIST_MONAD->( sub_morph { join ',', @_ } );

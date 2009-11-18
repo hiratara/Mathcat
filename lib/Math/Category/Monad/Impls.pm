@@ -1,4 +1,4 @@
-package Math::Category::Impl::Monads;
+package Math::Category::Monad::Impls;
 use Moose;
 use Math::Category::Functor;
 use Math::Category::NaturalTransformation qw/nat/;
