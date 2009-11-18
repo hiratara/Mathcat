@@ -8,12 +8,7 @@ use overload '&{}' => sub { my $s = shift; sub { $s->subroutine->(@_); }; };
 our $VERSION = '0.01';
 
 extends 'Math::Category::Morphism';
-
-has code => (
-	isa      => 'Math::Category::Util::Subroutine',
-	is       => 'ro',
-	required => 1,
-);
+with 'Math::Category::Role::Subroutish';
 
 my @export = qw/sub_morph/;
 Sub::Exporter::setup_exporter( { 
@@ -22,7 +17,7 @@ Sub::Exporter::setup_exporter( {
 } );
 
 sub sub_morph(&){
-	return __PACKAGE__->new( code => wrap $_[0] );
+	return __PACKAGE__->new( $_[0] );
 }
 
 our $ID = sub_morph { @_ };
@@ -34,13 +29,13 @@ sub composition {
 	my $morphism = shift;
 
 	# avoid a prototype check
-	return &sub_morph( $self->code . $morphism->code );
+	return &sub_morph( $self->impl . $morphism->impl );
 }
 
 sub subroutine {
 	my $self = shift;
 
-	return $self->code->subroutine;
+	return $self->impl->subroutine;
 }
 
 __PACKAGE__->meta->make_immutable;
