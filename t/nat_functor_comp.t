@@ -4,7 +4,6 @@ use Test::More tests => 4;
 use Math::Category::Impl::SimpleMorphism;
 use Math::Category::Functor;
 use Math::Category::NaturalTransformation;
-use Math::Category::Impl::AnyFunctor;
 use Math::Category::Impl::AnyNaturalTransformation qw/nat/;
 
 my $funct = functor {

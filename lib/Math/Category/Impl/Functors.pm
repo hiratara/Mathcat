@@ -1,5 +1,5 @@
 package Math::Category::Impl::Functors;
-use Math::Category::Impl::AnyFunctor;
+use Math::Category::Functor;
 use Math::Category::Impl::AnyNaturalTransformation qw/nat/;
 use Math::Category::Impl::FunctorMorphism;
 use Math::Category::Impl::SubroutineMorphism;

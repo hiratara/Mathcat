@@ -3,7 +3,6 @@ use warnings;
 use Test::More tests => 2;
 use Math::Category::Impl::SimpleMorphism;
 use Math::Category::Functor;
-use Math::Category::Impl::AnyFunctor;
 
 my $funct1 = functor {
 	my $simple_morph = shift;
