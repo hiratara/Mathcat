@@ -1,9 +1,9 @@
 use strict;
 use Test::More tests => 2;
-use Math::Category::Impl::SimpleMorphism;
-use Math::Category::Impl::OppositeMorphism qw/op/;
+use Math::Category::Morphism::Simple;
+use Math::Category::Morphism::Opposite qw/op/;
 use Math::Category::Impl::Bimorphism;
-use Math::Category::Impl::SubroutineMorphism;
+use Math::Category::Morphism::Subroutine;
 use Math::Category::Impl::Functors qw($HOM_BIFUNCTOR);
 
 my $morph12 = simple_morph '1' => '2';

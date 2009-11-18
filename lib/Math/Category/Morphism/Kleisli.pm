@@ -1,4 +1,4 @@
-package Math::Category::Impl::KleisliMorphism;
+package Math::Category::Morphism::Kleisli;
 use Moose;
 our $VERSION = '0.1';
 

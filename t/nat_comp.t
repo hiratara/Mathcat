@@ -1,6 +1,6 @@
 use strict;
 use Test::More tests => 4;
-use Math::Category::Impl::SimpleMorphism;
+use Math::Category::Morphism::Simple;
 use Math::Category::NaturalTransformation qw/nat/;
 
 # Composition

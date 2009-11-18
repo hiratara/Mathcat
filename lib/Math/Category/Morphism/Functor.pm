@@ -1,4 +1,4 @@
-package Math::Category::Impl::FunctorMorphism;
+package Math::Category::Morphism::Functor;
 use Moose;
 use Sub::Exporter;
 use Math::Category::NaturalTransformation -all => { -prefix => 'any_', };

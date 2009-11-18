@@ -3,7 +3,7 @@ use Moose;
 use Math::Category::Functor;
 use Math::Category::NaturalTransformation qw/nat/;
 use Math::Category::Monad;
-use Math::Category::Impl::SubroutineMorphism;
+use Math::Category::Morphism::Subroutine;
 use base Exporter::;
 our $VERSION = '0.01';
 

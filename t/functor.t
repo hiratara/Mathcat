@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 use Test::More tests => 3;
-use Math::Category::Impl::SimpleMorphism;
+use Math::Category::Morphism::Simple;
 
 BEGIN { use_ok 'Math::Category::Functor'; };
 

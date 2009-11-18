@@ -1,4 +1,4 @@
-package Math::Category::Impl::SimpleMorphism;
+package Math::Category::Morphism::Simple;
 use Moose;
 use Sub::Exporter;
 our $VERSION = '0.01';

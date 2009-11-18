@@ -1,7 +1,7 @@
 use strict;
 use Test::More tests => 10;
-use Math::Category::Impl::SimpleMorphism;
-use Math::Category::Impl::SubroutineMorphism;
+use Math::Category::Morphism::Simple;
+use Math::Category::Morphism::Subroutine;
 
 BEGIN { use_ok 'Math::Category::Impl::Bimorphism'; };
 

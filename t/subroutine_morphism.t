@@ -1,7 +1,7 @@
 use strict;
 use Test::More tests => 9;
 
-BEGIN{ use_ok 'Math::Category::Impl::SubroutineMorphism'; }
+BEGIN{ use_ok 'Math::Category::Morphism::Subroutine'; }
 
 # TEST 0: check the source and target
 {

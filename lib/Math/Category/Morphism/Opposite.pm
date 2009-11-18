@@ -1,4 +1,4 @@
-package Math::Category::Impl::OppositeMorphism;
+package Math::Category::Morphism::Opposite;
 use Moose;
 use Sub::Exporter;
 our $VERSION = '0.01';

@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 use Test::More tests => 4;
-use Math::Category::Impl::SimpleMorphism;
+use Math::Category::Morphism::Simple;
 use Math::Category::Functor;
 use Math::Category::NaturalTransformation qw/nat nat_funct funct_nat/;
 

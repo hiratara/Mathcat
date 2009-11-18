@@ -1,8 +1,8 @@
 package Math::Category::Example::CPSTransformation;
 use strict;
 use warnings;
-use Math::Category::Impl::OppositeMorphism qw/op/;
-use Math::Category::Impl::SubroutineMorphism;
+use Math::Category::Morphism::Opposite qw/op/;
+use Math::Category::Morphism::Subroutine;
 use Math::Category::Impl::Functors qw($YONEDA_EMBEDDING);
 
 use Sub::Exporter -setup => {

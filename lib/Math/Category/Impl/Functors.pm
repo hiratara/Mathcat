@@ -1,10 +1,10 @@
 package Math::Category::Impl::Functors;
 use Math::Category::Functor;
 use Math::Category::NaturalTransformation qw/nat/;
-use Math::Category::Impl::FunctorMorphism;
-use Math::Category::Impl::SubroutineMorphism;
+use Math::Category::Morphism::Functor;
+use Math::Category::Morphism::Subroutine;
 use Math::Category::Impl::Bimorphism;
-use Math::Category::Impl::OppositeMorphism qw/op/;
+use Math::Category::Morphism::Opposite qw/op/;
 use base Exporter::;
 our @EXPORT_OK = qw($HOM_BIFUNCTOR $YONEDA_EMBEDDING);
 

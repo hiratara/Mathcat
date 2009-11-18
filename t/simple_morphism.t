@@ -1,7 +1,7 @@
 use strict;
 use Test::More tests => 7;
 
-BEGIN { use_ok 'Math::Category::Impl::SimpleMorphism'; }
+BEGIN { use_ok 'Math::Category::Morphism::Simple'; }
 
 # TEST 1: source and target
 {

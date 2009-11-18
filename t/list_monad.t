@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 use Test::More tests => 8;
-use Math::Category::Impl::SubroutineMorphism;
+use Math::Category::Morphism::Subroutine;
 use Math::Category::NaturalTransformation qw/nat_funct funct_nat/;
 use Math::Category::Impl::Monads qw/$LIST_MONAD/;
 
@@ -11,7 +11,7 @@ is_deeply [ $morph->( ["abc", "e", "hi"], ["l", "mn", "opq"],  ) ],
           [ [ "abc,e,hi" ], [ "l,mn,opq" ] ];
 
 # Nats
-my $id_sub = $Math::Category::Impl::SubroutineMorphism::ID;
+my $id_sub = $Math::Category::Morphism::Subroutine::ID;
 is_deeply [ $LIST_MONAD->eta->( $id_sub )->( 'a', 'b', 'c' ) ],
           [ ['a', 'b', 'c' ] ];
 is_deeply [ $LIST_MONAD->mu->( $id_sub )->( 

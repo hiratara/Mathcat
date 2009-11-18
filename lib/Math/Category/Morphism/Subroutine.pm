@@ -1,4 +1,4 @@
-package Math::Category::Impl::SubroutineMorphism;
+package Math::Category::Morphism::Subroutine;
 use Moose;
 use Sub::Exporter;
 use overload '&{}' => sub { my $s = shift; sub { $s->subroutine->(@_); }; };
