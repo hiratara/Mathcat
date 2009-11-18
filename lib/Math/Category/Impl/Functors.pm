@@ -1,6 +1,6 @@
 package Math::Category::Impl::Functors;
 use Math::Category::Functor;
-use Math::Category::Impl::AnyNaturalTransformation qw/nat/;
+use Math::Category::NaturalTransformation qw/nat/;
 use Math::Category::Impl::FunctorMorphism;
 use Math::Category::Impl::SubroutineMorphism;
 use Math::Category::Impl::Bimorphism;

@@ -2,7 +2,7 @@ use strict;
 use warnings;
 use Test::More tests => 8;
 use Math::Category::Impl::SubroutineMorphism;
-use Math::Category::NaturalTransformation;
+use Math::Category::NaturalTransformation qw/nat_funct funct_nat/;
 use Math::Category::Impl::Monads qw/$LIST_MONAD/;
 
 # the Functor

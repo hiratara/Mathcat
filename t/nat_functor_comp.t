@@ -3,8 +3,7 @@ use warnings;
 use Test::More tests => 4;
 use Math::Category::Impl::SimpleMorphism;
 use Math::Category::Functor;
-use Math::Category::NaturalTransformation;
-use Math::Category::Impl::AnyNaturalTransformation qw/nat/;
+use Math::Category::NaturalTransformation qw/nat nat_funct funct_nat/;
 
 my $funct = functor {
 	my $simple_morph = shift;

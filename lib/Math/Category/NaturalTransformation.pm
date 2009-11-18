@@ -1,22 +1,32 @@
 package Math::Category::NaturalTransformation;
 use Moose;
 use Sub::Exporter;
-
-BEGIN{ sub component; } # XXX Because of mutual dependencies.
-use Math::Category::Impl::AnyNaturalTransformation qw/nat/;
 our $VERSION = '0.01';
 
 use overload '&{}' => sub { my $s = shift; sub { $s->component(@_); }; },
              '.'   => "composition";
 
-my @export = qw/nat_funct funct_nat/;
+with 'Math::Category::Role::Subroutish';
+
+my @export = qw/natural_transformation/;
 Sub::Exporter::setup_exporter( { 
-	exports => \@export,
+	exports => [ @export, qw/nat nat_funct funct_nat/ ],
 	groups  => { default => \@export, }, 
 } );
 
+sub natural_transformation(&){
+	__PACKAGE__->new( @_ );
+}
+# short cut
+# Use BEGIN block to inform prototype while compiling.
+BEGIN{ *nat = \&natural_transformation; }
+
+
 # my $morph = $nt->component( $id )
-sub component { die "the morphism for id arrow."; }
+sub component {
+	my $self = shift;
+	return $self->impl->(@_);
+};
 
 sub composition {
 	my $self = shift;

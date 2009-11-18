@@ -1,7 +1,7 @@
 use strict;
 use Test::More tests => 17;
 use Math::Category::Impl::SimpleMorphism;
-use Math::Category::Impl::AnyNaturalTransformation qw/nat/;
+use Math::Category::NaturalTransformation qw/nat/;
 
 # for shortcut
 BEGIN { use_ok 'Math::Category::Impl::FunctorMorphism'; }
