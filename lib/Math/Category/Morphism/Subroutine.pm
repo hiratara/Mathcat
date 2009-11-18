@@ -1,13 +1,16 @@
 package Math::Category::Morphism::Subroutine;
 use Moose;
 use Sub::Exporter;
+use Math::Category::Util::Subroutine;
+
 use overload '&{}' => sub { my $s = shift; sub { $s->subroutine->(@_); }; };
+
 our $VERSION = '0.01';
 
 extends 'Math::Category::Morphism';
 
-has subroutines => (
-	isa      => 'ArrayRef[CodeRef]',
+has code => (
+	isa      => 'Math::Category::Util::Subroutine',
 	is       => 'ro',
 	required => 1,
 );
@@ -19,16 +22,10 @@ Sub::Exporter::setup_exporter( {
 } );
 
 sub sub_morph(&){
-	return __PACKAGE__->new_with_sub( @_ );
+	return __PACKAGE__->new( code => &subs( $_[0] ) );
 }
 
 our $ID = sub_morph { @_ };
-
-sub new_with_sub {
-	my $class = shift;
-	my ($subroutine) = @_;
-	return $class->new( subroutines => [ $subroutine ] );
-}
 
 sub source      { return $ID; }
 sub target      { return $ID; }
@@ -36,20 +33,14 @@ sub composition {
 	my $self     = shift;
 	my $morphism = shift;
 	return __PACKAGE__->new(
-		subroutines => [ @{ $self->subroutines }, @{ $morphism->subroutines } ]
+		code => $self->code . $morphism->code, 
 	);
 }
 
 sub subroutine {
 	my $self = shift;
 
-	# To apply subroutines from end to start.
-	my @subs = reverse @{ $self->subroutines };
-	return sub {
-		my @cur_args = @_;
-		@cur_args = $_->( @cur_args ) for @subs;
-		return wantarray ? @cur_args : $cur_args[0];
-	};
+	return $self->code->subroutine;
 }
 
 __PACKAGE__->meta->make_immutable;
