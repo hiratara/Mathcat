@@ -1,9 +1,7 @@
 use strict;
 use Test::More tests => 17;
 use Math::Category::Impl::SimpleMorphism;
-# XXX Must use NT earlier than ANT because of dependencies. Too bad!!
-use Math::Category::NaturalTransformation;
-use Math::Category::Impl::AnyNaturalTransformation qw/nat/;
+use Math::Category::NaturalTransformation qw/nat/;
 
 # for shortcut
 BEGIN { use_ok 'Math::Category::Impl::FunctorMorphism'; }

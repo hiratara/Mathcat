@@ -3,7 +3,7 @@ use warnings;
 use Math::Category::Impl::SubroutineMorphism;
 use Test::More tests => 2;
 
-BEGIN { use_ok 'Math::Category::Impl::AnyNaturalTransformation', qw/nat/; };
+BEGIN { use_ok 'Math::Category::NaturalTransformation', qw/nat/; };
 
 my $nt = nat {
     my $id = shift;

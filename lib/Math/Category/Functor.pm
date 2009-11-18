@@ -1,14 +1,29 @@
 package Math::Category::Functor;
 use Moose;
-# XXX Because of mutual dependencies.
-BEGIN { sub apply; } use Math::Category::Impl::AnyFunctor;
-our $VERSION = '0.01';
+use Sub::Exporter;
 
 # Definition of composition operator
 use overload '&{}' => sub { my $s = shift; sub { $s->apply(@_); }; },
              '.'   => "composition";
 
-sub apply { die "a mapping of morphisms."; }
+our $VERSION = '0.01';
+
+with 'Math::Category::Role::Subroutish';
+
+my @export = qw/functor/;
+Sub::Exporter::setup_exporter( { 
+	exports => \@export,
+	groups  => { default => \@export, }, 
+} );
+
+sub functor(&){
+	__PACKAGE__->new( @_ );
+}
+
+sub apply {
+	my $self = shift;
+	return $self->impl->( @_ );
+};
 
 sub composition {
 	my $self = shift;
@@ -20,7 +35,6 @@ sub composition {
 		return $self->( $funct->( $morph ) );
 	};
 }
-
 
 __PACKAGE__->meta->make_immutable;
 no  Moose;

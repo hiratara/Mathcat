@@ -3,7 +3,7 @@ use warnings;
 use Test::More tests => 3;
 use Math::Category::Impl::SimpleMorphism;
 
-BEGIN { use_ok 'Math::Category::Impl::AnyFunctor'; };
+BEGIN { use_ok 'Math::Category::Functor'; };
 
 my $id = functor { $_[0]; };
 my $morph12 = simple_morph '1' => '2';
