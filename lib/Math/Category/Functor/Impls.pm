@@ -1,4 +1,4 @@
-package Math::Category::Impl::Functors;
+package Math::Category::Functor::Impls;
 use Math::Category::Functor;
 use Math::Category::NaturalTransformation qw/nat/;
 use Math::Category::Morphism::Functor;
@@ -37,11 +37,11 @@ __END__
 
 =head1 NAME
 
-Math::Category::Impl::Functors - Functor implementations.
+Math::Category::Functor::Impls - Functor implementations.
 
 =head1 SYNOPSIS
 
-  use Math::Category::Impl::Functors qw($HOM_BIFUNCTOR);
+  use Math::Category::Functor::Impls qw($HOM_BIFUNCTOR);
 
 =head1 DESCRIPTION
 

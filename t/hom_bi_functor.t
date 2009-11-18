@@ -4,7 +4,7 @@ use Math::Category::Morphism::Simple;
 use Math::Category::Morphism::Opposite qw/op/;
 use Math::Category::Morphism::Bimorphism;
 use Math::Category::Morphism::Subroutine;
-use Math::Category::Impl::Functors qw($HOM_BIFUNCTOR);
+use Math::Category::Functor::Impls qw($HOM_BIFUNCTOR);
 
 my $morph12 = simple_morph '1' => '2';
 my $morph23 = simple_morph '2' => '3';

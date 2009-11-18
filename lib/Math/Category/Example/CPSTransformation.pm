@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use Math::Category::Morphism::Opposite qw/op/;
 use Math::Category::Morphism::Subroutine;
-use Math::Category::Impl::Functors qw($YONEDA_EMBEDDING);
+use Math::Category::Functor::Impls qw($YONEDA_EMBEDDING);
 
 use Sub::Exporter -setup => {
     exports => [ qw(cps_transformation) ],
