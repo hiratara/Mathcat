@@ -11,14 +11,16 @@ has subroutines => (
 	required => 1,
 );
 
-my @export = qw/subs/;
+my @export = qw/wrap/;
 Sub::Exporter::setup_exporter( { 
 	exports => \@export,
 	groups  => { default => \@export, }, 
 } );
 
-sub subs(&){
-	return __PACKAGE__->new( subroutines => \@_ );
+sub wrap($){
+	my $sub = shift;
+	return $sub if UNIVERSAL::isa $sub, __PACKAGE__;
+	return __PACKAGE__->new( subroutines => [ $sub ] );
 }
 
 

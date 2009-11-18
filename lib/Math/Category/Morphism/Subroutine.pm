@@ -22,7 +22,7 @@ Sub::Exporter::setup_exporter( {
 } );
 
 sub sub_morph(&){
-	return __PACKAGE__->new( code => &subs( $_[0] ) );
+	return __PACKAGE__->new( code => wrap $_[0] );
 }
 
 our $ID = sub_morph { @_ };
@@ -32,9 +32,9 @@ sub target      { return $ID; }
 sub composition {
 	my $self     = shift;
 	my $morphism = shift;
-	return __PACKAGE__->new(
-		code => $self->code . $morphism->code, 
-	);
+
+	# avoid a prototype check
+	return &sub_morph( $self->code . $morphism->code );
 }
 
 sub subroutine {
