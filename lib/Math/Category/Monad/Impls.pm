@@ -34,8 +34,9 @@ our $STATE_MONAD = Math::Category::Monad->new(
 	mu  => nat { sub_morph {
 		my $state_state_value = shift;
 		return sub {
-			my ($state_value, $state) = $state_state_value->( @_ );
-			return $state_value->( @$state );
+			my ($state_values, $states) = $state_state_value->( @_ );
+			die 'Unknown type of arguments.' unless @$state_values == 1;
+			return $state_values->[0]->( @$states );
 		};
 	} },
 );
