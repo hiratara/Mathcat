@@ -1,5 +1,6 @@
 package Math::Category::Monad::Impls;
-use Moose;
+use strict;
+use warnings;
 use Math::Category::Functor;
 use Math::Category::Functor::Impls qw/$LIST_FUNCTOR $STATE_FUNCTOR/;
 use Math::Category::NaturalTransformation qw/nat/;
@@ -41,7 +42,4 @@ our $STATE_MONAD = Math::Category::Monad->new(
 	} },
 );
 
-
-__PACKAGE__->meta->make_immutable;
-no  Moose;
 1;
