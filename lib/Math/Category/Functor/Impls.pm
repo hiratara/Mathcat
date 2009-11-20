@@ -8,6 +8,7 @@ use Math::Category::Morphism::Opposite qw/op/;
 use base Exporter::;
 our @EXPORT_OK = qw(
 	$HOM_BIFUNCTOR $YONEDA_EMBEDDING $LIST_FUNCTOR $STATE_FUNCTOR 
+	$MAYBE_FUNCTOR
 );
 
 our $HOM_BIFUNCTOR = functor {
@@ -46,6 +47,16 @@ our $STATE_FUNCTOR = functor {
 			my ($val, $state) = $state_val->( @_ );
 			return [ $sub_morph->( @$val ) ], $state;
 		}
+	};
+};
+
+
+our $MAYBE_FUNCTOR = functor {
+	my $sub_morph = shift;
+	return sub_morph {
+		my $maybe = shift;
+		return undef unless defined $maybe;
+		return [ $sub_morph->( @$maybe ) ];
 	};
 };
 
