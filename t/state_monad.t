@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-use Test::More tests => 8;
+use Test::More tests => 10;
 use Math::Category::Morphism::Subroutine;
 use Math::Category::NaturalTransformation qw/nat_funct funct_nat/;
 use Math::Category::Monad::Impls qw/$STATE_MONAD/;
@@ -53,4 +53,26 @@ is_deeply $state5, [ qw/A B/ ];
 
 
 # Monad raw (associative)---------------
-# TODO: implement
+my $nat3 = $STATE_MONAD->mu .
+          (funct_nat $STATE_MONAD->functor, $STATE_MONAD->mu     );
+my $nat4 = $STATE_MONAD->mu .
+          (nat_funct $STATE_MONAD->mu     , $STATE_MONAD->functor);
+
+my $state_state_state_value = sub {
+	my @states1 = @_;
+	return [sub {
+		my @states2 = @_;
+		my $v = shift @states2;
+		return [sub {
+			my @states3 = @_;
+			return [$v], \@states3;  # values and states of 3
+		}], \@states2;               # states of 2
+	}], [ @states1, 'X' ];           # states of 1
+};
+
+my $state_value6 = $nat3->( $id_sub )->( $state_state_state_value );
+my ($value6, $state6) = $state_value6->();
+my $state_value7 = $nat4->( $id_sub )->( $state_state_state_value );
+my ($value7, $state7) = $state_value6->();
+is_deeply $value6, $value7;
+is_deeply $state6, $state7;
