@@ -1,27 +1,17 @@
-This is Perl module Math::Category.
+NAME
+    Math::Category -
 
-INSTALLATION
+SYNOPSIS
+      use Math::Category;
 
-Math::Category installation is straightforward. If your CPAN shell is set up,
-you should just be able to do
+DESCRIPTION
+    Math::Category is
 
-    % cpan Math::Category
+AUTHOR
+    hiratara <hira.tara@gmail.com>
 
-Download it, unpack it, then build it as per the usual:
+SEE ALSO
+LICENSE
+    This library is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself.
 
-    % perl Makefile.PL
-    % make && make test
-
-Then install it:
-
-    % make install
-
-DOCUMENTATION
-
-Math::Category documentation is available as in POD. So you can do:
-
-    % perldoc Math::Category
-
-to read the documentation online with your favorite pager.
-
-hiratara
