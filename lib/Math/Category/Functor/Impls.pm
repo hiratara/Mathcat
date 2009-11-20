@@ -1,4 +1,6 @@
 package Math::Category::Functor::Impls;
+use strict;
+use warnings;
 use Math::Category::Functor;
 use Math::Category::NaturalTransformation qw/nat/;
 use Math::Category::Morphism::Functor;
