@@ -10,7 +10,7 @@ use Math::Category::Morphism::Subroutine;
 use Math::Category::Morphism::Kleisli;
 our $VERSION = '0.01';
 
-my @export = qw/just nothing maybe_kleisli/;
+my @export = qw/just nothing maybe_kleisli eval_maybe/;
 Sub::Exporter::setup_exporter( { 
 	exports => \@export,
 	groups  => { default => \@export, }, 
@@ -44,6 +44,12 @@ sub maybe_kleisli(&){
 		# All ids are considered as sub { @_ } in the category of subroutines.
 		orig_target => $Math::Category::Morphism::Subroutine::ID,
 	);
+}
+
+
+sub eval_maybe{
+	my $maybe_kleisli = shift;
+	return $maybe_kleisli->morphism->( @_ );
 }
 
 

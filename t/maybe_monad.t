@@ -11,5 +11,5 @@ my $div = maybe_kleisli { $_[1] == 0 ? nothing : just $_[0] / $_[1] };
 my $bar = maybe_kleisli { return just( 'x' x $_[0] ) };
 my $divbar = $bar . $div;
 
-is_deeply $divbar->morphism->( 4, 2), [ 'xx' ];
-is $divbar->morphism->( 3, 0), undef;
+is_deeply eval_maybe($divbar, 4, 2), [ 'xx' ];
+is eval_maybe($divbar, 3, 0), undef;
