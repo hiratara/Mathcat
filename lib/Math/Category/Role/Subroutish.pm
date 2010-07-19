@@ -1,5 +1,5 @@
 package Math::Category::Role::Subroutish;
-use Moose::Role;
+use Any::Moose 'Role';
 use Math::Category::Util::Subroutine;
 
 has impl => (
@@ -15,5 +15,5 @@ around BUILDARGS => sub {
 	return $class->$super( impl => wrap $impl );
 };
 
-no  Moose::Role;
+no  Any::Moose 'Role';
 1;

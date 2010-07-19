@@ -1,5 +1,5 @@
 package Math::Category::Util::Subroutine;
-use Moose;
+use Any::Moose;
 use Sub::Exporter;
 use overload '&{}' => sub { my $s = shift; sub { $s->subroutine->(@_); }; },
              '.'   => "composition";
@@ -45,5 +45,5 @@ sub subroutine {
 }
 
 __PACKAGE__->meta->make_immutable;
-no  Moose;
+no  Any::Moose;
 1;

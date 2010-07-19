@@ -1,5 +1,5 @@
 package Math::Category::Morphism;
-use Moose;
+use Any::Moose;
 our $VERSION = '0.01';
 
 # Definition of composition operator
@@ -10,7 +10,7 @@ sub target      { die "Target identity of this morphism."; }
 sub composition { die "Composit two morphisms."; }
 
 __PACKAGE__->meta->make_immutable;
-no  Moose;
+no  Any::Moose;
 
 1;
 __END__

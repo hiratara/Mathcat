@@ -1,5 +1,5 @@
 package Math::Category::Morphism::Opposite;
-use Moose;
+use Any::Moose;
 use Sub::Exporter;
 our $VERSION = '0.01';
 
@@ -45,5 +45,5 @@ sub composition {
 }
 
 __PACKAGE__->meta->make_immutable;
-no  Moose;
+no  Any::Moose;
 1;

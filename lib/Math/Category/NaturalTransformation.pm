@@ -1,5 +1,5 @@
 package Math::Category::NaturalTransformation;
-use Moose;
+use Any::Moose;
 use Sub::Exporter;
 our $VERSION = '0.01';
 
@@ -57,7 +57,7 @@ sub funct_nat($$){
 }
 
 __PACKAGE__->meta->make_immutable;
-no  Moose;
+no  Any::Moose;
 
 1;
 __END__

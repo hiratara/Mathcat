@@ -1,5 +1,5 @@
 package Math::Category::Morphism::Subroutine;
-use Moose;
+use Any::Moose;
 use Sub::Exporter;
 
 use overload '&{}' => sub { my $s = shift; sub { $s->call(@_); }; };
@@ -37,7 +37,7 @@ sub call {
 }
 
 __PACKAGE__->meta->make_immutable;
-no  Moose;
+no  Any::Moose;
 
 1;
 __END__

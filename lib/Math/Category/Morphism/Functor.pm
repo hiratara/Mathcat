@@ -1,5 +1,5 @@
 package Math::Category::Morphism::Functor;
-use Moose;
+use Any::Moose;
 use Sub::Exporter;
 use Math::Category::NaturalTransformation -all => { -prefix => 'any_', };
 use overload '&{}' => sub { my $s = shift; sub { $s->nat->(@_); }; };
@@ -55,6 +55,6 @@ sub composition {
 }
 
 __PACKAGE__->meta->make_immutable;
-no  Moose;
+no  Any::Moose;
 
 1;

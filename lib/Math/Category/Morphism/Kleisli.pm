@@ -1,5 +1,5 @@
 package Math::Category::Morphism::Kleisli;
-use Moose;
+use Any::Moose;
 our $VERSION = '0.1';
 
 extends 'Math::Category::Morphism';
@@ -44,5 +44,5 @@ sub composition {
 }
 
 __PACKAGE__->meta->make_immutable;
-no  Moose;
+no  Any::Moose;
 1;

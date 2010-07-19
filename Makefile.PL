@@ -3,8 +3,9 @@ name        'Math-Category';
 all_from    'lib/Math/Category.pm';
 readme_from 'lib/Math/Category.pm';
 
-requires 'Moose';
+requires 'Any::Moose';
 requires 'Sub::Exporter';
+recommends 'Mouse';
 
 tests 't/*.t';
 author_tests 'xt';

@@ -1,5 +1,5 @@
 package Math::Category::Functor;
-use Moose;
+use Any::Moose;
 use Sub::Exporter;
 
 # Definition of composition operator
@@ -34,7 +34,7 @@ sub composition {
 }
 
 __PACKAGE__->meta->make_immutable;
-no  Moose;
+no  Any::Moose;
 
 1;
 __END__

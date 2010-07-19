@@ -1,5 +1,5 @@
 package Math::Category::Monad;
-use Moose;
+use Any::Moose;
 our $VERSION = '0.01';
 
 # Monad acts a functor.
@@ -27,6 +27,6 @@ has mu      => (
 );
 
 __PACKAGE__->meta->make_immutable;
-no  Moose;
+no  Any::Moose;
 
 1;
