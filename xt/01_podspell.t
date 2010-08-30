@@ -7,4 +7,4 @@ all_pod_files_spelling_ok('lib');
 __DATA__
 hiratara
 hira.tara@gmail.com
-Math::Category
+Mathcat

@@ -1,4 +1,4 @@
-package Math::Category::Functor;
+package Mathcat::Functor;
 use Any::Moose;
 use Sub::Exporter;
 
@@ -8,7 +8,7 @@ use overload '&{}' => sub { my $s = shift; sub { $s->apply(@_); }; },
 
 our $VERSION = '0.01';
 
-with 'Math::Category::Role::Subroutish';
+with 'Mathcat::Role::Subroutish';
 
 my @export = qw/functor/;
 Sub::Exporter::setup_exporter( { 
@@ -41,15 +41,15 @@ __END__
 
 =head1 NAME
 
-Math::Category::Functor - Abstract class for functor.
+Mathcat::Functor - Abstract class for functor.
 
 =head1 SYNOPSIS
 
-  use Math::Category::Functor;
+  use Mathcat::Functor;
 
 =head1 DESCRIPTION
 
-Math::Category::Functor is an abstract class for functor.
+Mathcat::Functor is an abstract class for functor.
 You should implement methods of this class to implement a functor.
 
 =head1 AUTHOR

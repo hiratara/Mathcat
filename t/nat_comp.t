@@ -1,7 +1,7 @@
 use strict;
 use Test::More tests => 4;
-use Math::Category::Morphism::Simple;
-use Math::Category::NaturalTransformation qw/nat/;
+use Mathcat::Morphism::Simple;
+use Mathcat::NaturalTransformation qw/nat/;
 
 # Composition
 my $nat1 = nat {

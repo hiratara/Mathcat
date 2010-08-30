@@ -1,4 +1,4 @@
-package Math::Category;
+package Mathcat;
 
 use strict;
 use warnings;
@@ -9,15 +9,15 @@ __END__
 
 =head1 NAME
 
-Math::Category -
+Mathcat -
 
 =head1 SYNOPSIS
 
-  use Math::Category;
+  use Mathcat;
 
 =head1 DESCRIPTION
 
-Math::Category is
+Mathcat is
 
 =head1 AUTHOR
 

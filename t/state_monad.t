@@ -1,12 +1,12 @@
 use strict;
 use warnings;
 use Test::More tests => 10;
-use Math::Category::Morphism::Subroutine;
-use Math::Category::NaturalTransformation qw/nat_funct funct_nat/;
-use Math::Category::Monad::Impls qw/$STATE_MONAD/;
+use Mathcat::Morphism::Subroutine;
+use Mathcat::NaturalTransformation qw/nat_funct funct_nat/;
+use Mathcat::Monad::Impls qw/$STATE_MONAD/;
 
 
-my $id_sub = $Math::Category::Morphism::Subroutine::ID;
+my $id_sub = $Mathcat::Morphism::Subroutine::ID;
 
 # Nats
 my $state_value1 = $STATE_MONAD->eta->( $id_sub )->( 'a', 'b', 'c' );

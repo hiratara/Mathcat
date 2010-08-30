@@ -1,21 +1,21 @@
 use strict;
 use warnings;
 use Test::More tests => 1;
-use Math::Category::Morphism::Kleisli;
-use Math::Category::Morphism::Subroutine;
-use Math::Category::Monad::Impls qw/$LIST_MONAD/;
+use Mathcat::Morphism::Kleisli;
+use Mathcat::Morphism::Subroutine;
+use Mathcat::Monad::Impls qw/$LIST_MONAD/;
 
 # Composition
-my $morph1 = Math::Category::Morphism::Kleisli->new(
+my $morph1 = Mathcat::Morphism::Kleisli->new(
 	monad       => $LIST_MONAD,
 	morphism    => sub_morph { ( [ 'xyz' ] ) x $_[0] },
-	orig_target => $Math::Category::Morphism::Subroutine::ID,
+	orig_target => $Mathcat::Morphism::Subroutine::ID,
 );
 
-my $morph2 = Math::Category::Morphism::Kleisli->new(
+my $morph2 = Mathcat::Morphism::Kleisli->new(
 	monad       => $LIST_MONAD,
 	morphism    => sub_morph { map { [$_] } split //, $_[0] },
-	orig_target => $Math::Category::Morphism::Subroutine::ID,
+	orig_target => $Mathcat::Morphism::Subroutine::ID,
 );
 
 my $morph3 = $morph2 . $morph1;

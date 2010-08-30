@@ -1,18 +1,18 @@
-package Math::Category::Monad::Impls;
+package Mathcat::Monad::Impls;
 use strict;
 use warnings;
-use Math::Category::Functor;
-use Math::Category::Functor::Impls qw/$LIST_FUNCTOR $STATE_FUNCTOR/;
-use Math::Category::NaturalTransformation qw/nat/;
-use Math::Category::Monad;
-use Math::Category::Morphism::Subroutine;
+use Mathcat::Functor;
+use Mathcat::Functor::Impls qw/$LIST_FUNCTOR $STATE_FUNCTOR/;
+use Mathcat::NaturalTransformation qw/nat/;
+use Mathcat::Monad;
+use Mathcat::Morphism::Subroutine;
 use base Exporter::;
 our $VERSION = '0.01';
 
 our @EXPORT_OK = qw/$LIST_MONAD $STATE_MONAD/;
 
 
-our $LIST_MONAD = Math::Category::Monad->new(
+our $LIST_MONAD = Mathcat::Monad->new(
 	functor => $LIST_FUNCTOR,
 
 	# All components were same for any ids in the category of subroutines.
@@ -21,7 +21,7 @@ our $LIST_MONAD = Math::Category::Monad->new(
 );
 
 
-our $STATE_MONAD = Math::Category::Monad->new(
+our $STATE_MONAD = Mathcat::Monad->new(
 	functor => $STATE_FUNCTOR,
 
 	# All components were same for any ids in the category of subroutines.

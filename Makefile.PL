@@ -1,7 +1,7 @@
 use inc::Module::Install;
 name        'Math-Category';
-all_from    'lib/Math/Category.pm';
-readme_from 'lib/Math/Category.pm';
+all_from    'lib/Mathcat.pm';
+readme_from 'lib/Mathcat.pm';
 
 requires 'Any::Moose';
 requires 'Sub::Exporter';

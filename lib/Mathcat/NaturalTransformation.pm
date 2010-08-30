@@ -1,4 +1,4 @@
-package Math::Category::NaturalTransformation;
+package Mathcat::NaturalTransformation;
 use Any::Moose;
 use Sub::Exporter;
 our $VERSION = '0.01';
@@ -6,7 +6,7 @@ our $VERSION = '0.01';
 use overload '&{}' => sub { my $s = shift; sub { $s->component(@_); }; },
              '.'   => "composition";
 
-with 'Math::Category::Role::Subroutish';
+with 'Mathcat::Role::Subroutish';
 
 my @export = qw/natural_transformation/;
 Sub::Exporter::setup_exporter( { 
@@ -64,16 +64,16 @@ __END__
 
 =head1 NAME
 
-Math::Category::NaturalTransformation - Abstract class for natural 
+Mathcat::NaturalTransformation - Abstract class for natural 
 transformation.
 
 =head1 SYNOPSIS
 
-  use Math::Category::NaturalTransformation;
+  use Mathcat::NaturalTransformation;
 
 =head1 DESCRIPTION
 
-Math::Category::NaturalTransformation is an abstract class for natural
+Mathcat::NaturalTransformation is an abstract class for natural
 tarnsformation.
 You should implement methods of this class to implement a natural
 tarnsformation.

@@ -1,14 +1,14 @@
-package Math::Category::Morphism::Functor;
+package Mathcat::Morphism::Functor;
 use Any::Moose;
 use Sub::Exporter;
-use Math::Category::NaturalTransformation -all => { -prefix => 'any_', };
+use Mathcat::NaturalTransformation -all => { -prefix => 'any_', };
 use overload '&{}' => sub { my $s = shift; sub { $s->nat->(@_); }; };
 our $VERSION = '0.01';
 
-extends 'Math::Category::Morphism';
+extends 'Mathcat::Morphism';
 
 has natural_transformation => (
-	isa      => 'Math::Category::NaturalTransformation',
+	isa      => 'Mathcat::NaturalTransformation',
 	is       => 'ro',
 	required => 1,
 );

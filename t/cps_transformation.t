@@ -1,6 +1,6 @@
 use strict;
 use Test::More tests => 2;
-use Math::Category::Example::CPSTransformation qw(cps_transformation);
+use Mathcat::Example::CPSTransformation qw(cps_transformation);
 
 my $length      = sub { scalar @_;    };
 my $empty_array = sub { ('') x $_[0]; };

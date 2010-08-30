@@ -1,4 +1,4 @@
-package Math::Category::Monad;
+package Mathcat::Monad;
 use Any::Moose;
 our $VERSION = '0.01';
 
@@ -8,21 +8,21 @@ use overload '&{}' => sub { my $s = shift; sub { $s->functor->(@_); }; };
 # Endo-functor T
 has functor => ( 
 	is      => 'ro', 
-	isa     => 'Math::Category::Functor', 
+	isa     => 'Mathcat::Functor', 
 	required => 1 
 );
 
 # Identity : I -> T
 has eta     => ( 
 	is      => 'ro', 
-	isa     => 'Math::Category::NaturalTransformation', 
+	isa     => 'Mathcat::NaturalTransformation', 
 	required => 1 
 );
 
 # Associativity : TT -> T
 has mu      => ( 
 	is      => 'ro', 
-	isa     => 'Math::Category::NaturalTransformation', 
+	isa     => 'Mathcat::NaturalTransformation', 
 	required => 1 
 );
 

@@ -1,9 +1,9 @@
-package Math::Category::Morphism::Simple;
+package Mathcat::Morphism::Simple;
 use Any::Moose;
 use Sub::Exporter;
 our $VERSION = '0.01';
 
-extends 'Math::Category::Morphism';
+extends 'Mathcat::Morphism';
 
 has source_object => (
 	isa      => 'Str',

@@ -1,12 +1,12 @@
-package Math::Category::Morphism::Opposite;
+package Mathcat::Morphism::Opposite;
 use Any::Moose;
 use Sub::Exporter;
 our $VERSION = '0.01';
 
-extends 'Math::Category::Morphism';
+extends 'Mathcat::Morphism';
 
 has morphism   => (
-	isa      => 'Math::Category::Morphism',
+	isa      => 'Mathcat::Morphism',
 	is       => 'ro',
 	required => 1,
 );

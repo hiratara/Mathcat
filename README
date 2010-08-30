@@ -1,11 +1,11 @@
 NAME
-    Math::Category -
+    Mathcat -
 
 SYNOPSIS
-      use Math::Category;
+      use Mathcat;
 
 DESCRIPTION
-    Math::Category is
+    Mathcat is
 
 AUTHOR
     hiratara <hira.tara@gmail.com>

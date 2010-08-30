@@ -1,10 +1,10 @@
 use strict;
 use Test::More tests => 17;
-use Math::Category::Morphism::Simple;
-use Math::Category::NaturalTransformation qw/nat/;
+use Mathcat::Morphism::Simple;
+use Mathcat::NaturalTransformation qw/nat/;
 
 # for shortcut
-BEGIN { use_ok 'Math::Category::Morphism::Functor'; }
+BEGIN { use_ok 'Mathcat::Morphism::Functor'; }
 
 
 # Source and targets

@@ -1,8 +1,8 @@
 use strict;
 use warnings;
 use Test::More tests => 4;
-use Math::Category::Morphism::Subroutine;
-use Math::Category::Monad::Maybe;
+use Mathcat::Morphism::Subroutine;
+use Mathcat::Monad::Maybe;
 
 is_deeply just(1, 2, 3), [ 1, 2, 3];
 ok ! defined nothing;

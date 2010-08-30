@@ -1,12 +1,12 @@
-package Math::Category::Functor::Impls;
+package Mathcat::Functor::Impls;
 use strict;
 use warnings;
-use Math::Category::Functor;
-use Math::Category::NaturalTransformation qw/nat/;
-use Math::Category::Morphism::Functor;
-use Math::Category::Morphism::Subroutine;
-use Math::Category::Morphism::Bimorphism;
-use Math::Category::Morphism::Opposite qw/op/;
+use Mathcat::Functor;
+use Mathcat::NaturalTransformation qw/nat/;
+use Mathcat::Morphism::Functor;
+use Mathcat::Morphism::Subroutine;
+use Mathcat::Morphism::Bimorphism;
+use Mathcat::Morphism::Opposite qw/op/;
 use base Exporter::;
 our @EXPORT_OK = qw(
 	$HOM_BIFUNCTOR $YONEDA_EMBEDDING $LIST_FUNCTOR $STATE_FUNCTOR 
@@ -70,17 +70,17 @@ __END__
 
 =head1 NAME
 
-Math::Category::Functor::Impls - Functor implementations.
+Mathcat::Functor::Impls - Functor implementations.
 
 =head1 SYNOPSIS
 
-  use Math::Category::Functor::Impls qw($HOM_BIFUNCTOR);
+  use Mathcat::Functor::Impls qw($HOM_BIFUNCTOR);
 
 =head1 DESCRIPTION
 
 =item $HOM_BIFUNCTOR
 
-Math::Category::Impl::HomBifunctor is implementation of C(-,-) bifunctor.
+Mathcat::Impl::HomBifunctor is implementation of C(-,-) bifunctor.
 
 C(-,-): C^op x C -> Sets
 

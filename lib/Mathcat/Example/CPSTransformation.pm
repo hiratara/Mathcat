@@ -1,9 +1,9 @@
-package Math::Category::Example::CPSTransformation;
+package Mathcat::Example::CPSTransformation;
 use strict;
 use warnings;
-use Math::Category::Morphism::Opposite qw/op/;
-use Math::Category::Morphism::Subroutine;
-use Math::Category::Functor::Impls qw($YONEDA_EMBEDDING);
+use Mathcat::Morphism::Opposite qw/op/;
+use Mathcat::Morphism::Subroutine;
+use Mathcat::Functor::Impls qw($YONEDA_EMBEDDING);
 
 use Sub::Exporter -setup => {
     exports => [ qw(cps_transformation) ],

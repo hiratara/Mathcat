@@ -1,18 +1,18 @@
-package Math::Category::Morphism::Bimorphism;
+package Mathcat::Morphism::Bimorphism;
 use Any::Moose;
 use Sub::Exporter;
 our $VERSION = '0.01';
 
-extends 'Math::Category::Morphism';
+extends 'Mathcat::Morphism';
 
 has morphism1   => (
-	isa      => 'Math::Category::Morphism',
+	isa      => 'Mathcat::Morphism',
 	is       => 'ro',
 	required => 1,
 );
 
 has morphism2   => (
-	isa      => 'Math::Category::Morphism',
+	isa      => 'Mathcat::Morphism',
 	is       => 'ro',
 	required => 1,
 );

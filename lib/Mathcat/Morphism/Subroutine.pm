@@ -1,4 +1,4 @@
-package Math::Category::Morphism::Subroutine;
+package Mathcat::Morphism::Subroutine;
 use Any::Moose;
 use Sub::Exporter;
 
@@ -6,8 +6,8 @@ use overload '&{}' => sub { my $s = shift; sub { $s->call(@_); }; };
 
 our $VERSION = '0.01';
 
-extends 'Math::Category::Morphism';
-with 'Math::Category::Role::Subroutish';
+extends 'Mathcat::Morphism';
+with 'Mathcat::Role::Subroutish';
 
 my @export = qw/sub_morph/;
 Sub::Exporter::setup_exporter( { 
@@ -44,15 +44,15 @@ __END__
 
 =head1 NAME
 
-Math::Category::Morphism - Abstract class for morphism.
+Mathcat::Morphism - Abstract class for morphism.
 
 =head1 SYNOPSIS
 
-  use Math::Category::Morphism;
+  use Mathcat::Morphism;
 
 =head1 DESCRIPTION
 
-Math::Category::Morphism is an abstract class for morphism.
+Mathcat::Morphism is an abstract class for morphism.
 You should implement methods of this class to implement a morphism.
 
 =head1 AUTHOR

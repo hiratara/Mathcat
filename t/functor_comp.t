@@ -1,8 +1,8 @@
 use strict;
 use warnings;
 use Test::More tests => 2;
-use Math::Category::Morphism::Simple;
-use Math::Category::Functor;
+use Mathcat::Morphism::Simple;
+use Mathcat::Functor;
 
 my $funct1 = functor {
 	my $simple_morph = shift;

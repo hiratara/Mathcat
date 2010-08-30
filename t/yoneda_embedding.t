@@ -1,8 +1,8 @@
 use strict;
 use Test::More tests => 2;
-use Math::Category::Morphism::Simple;
-use Math::Category::Morphism::Opposite qw(op);
-use Math::Category::Functor::Impls qw($YONEDA_EMBEDDING);
+use Mathcat::Morphism::Simple;
+use Mathcat::Morphism::Opposite qw(op);
+use Mathcat::Functor::Impls qw($YONEDA_EMBEDDING);
 
 my $morph21 = simple_morph '2' => '1';
 my $morph13 = simple_morph '1' => '3';

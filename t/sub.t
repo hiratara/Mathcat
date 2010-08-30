@@ -2,7 +2,7 @@ use strict;
 use warnings;
 use Test::More tests => 7;
 
-BEGIN{ use_ok 'Math::Category::Util::Subroutine'; }
+BEGIN{ use_ok 'Mathcat::Util::Subroutine'; }
 
 
 # TEST 1: one argument subroutines
