@@ -1,4 +1,4 @@
-package Mathcat::NaturalTransformation;
+package Mathcat::Nat;
 use Any::Moose;
 use Sub::Exporter;
 our $VERSION = '0.01';
@@ -64,16 +64,16 @@ __END__
 
 =head1 NAME
 
-Mathcat::NaturalTransformation - Abstract class for natural 
+Mathcat::Nat - Abstract class for natural 
 transformation.
 
 =head1 SYNOPSIS
 
-  use Mathcat::NaturalTransformation;
+  use Mathcat::Nat;
 
 =head1 DESCRIPTION
 
-Mathcat::NaturalTransformation is an abstract class for natural
+Mathcat::Nat is an abstract class for natural
 tarnsformation.
 You should implement methods of this class to implement a natural
 tarnsformation.

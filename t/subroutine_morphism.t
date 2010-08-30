@@ -1,7 +1,7 @@
 use strict;
 use Test::More tests => 9;
 
-BEGIN{ use_ok 'Mathcat::Morphism::Subroutine'; }
+BEGIN{ use_ok 'Mathcat::Morph::Sub'; }
 
 # TEST 0: check the source and target
 {

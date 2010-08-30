@@ -1,9 +1,9 @@
 use strict;
 use warnings;
 use Test::More tests => 4;
-use Mathcat::Morphism::Simple;
-use Mathcat::Functor;
-use Mathcat::NaturalTransformation qw/nat nat_funct funct_nat/;
+use Mathcat::Morph::Simple;
+use Mathcat::Funct;
+use Mathcat::Nat qw/nat nat_funct funct_nat/;
 
 my $funct = functor {
 	my $simple_morph = shift;

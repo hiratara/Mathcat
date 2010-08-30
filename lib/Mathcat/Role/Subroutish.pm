@@ -1,10 +1,10 @@
 package Mathcat::Role::Subroutish;
 use Any::Moose 'Role';
-use Mathcat::Util::Subroutine;
+use Mathcat::Util::Sub;
 
 has impl => (
 	is       => 'ro',
-	isa      => 'Mathcat::Util::Subroutine',
+	isa      => 'Mathcat::Util::Sub',
 	required => 1
 );
 

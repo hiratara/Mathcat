@@ -1,8 +1,8 @@
 use strict;
 use Test::More tests => 9;
-use Mathcat::Morphism::Simple;
+use Mathcat::Morph::Simple;
 
-BEGIN { use_ok 'Mathcat::Morphism::Opposite', qw/op/; };
+BEGIN { use_ok 'Mathcat::Morph::Op', qw/op/; };
 
 # TEST 1: source and target
 {

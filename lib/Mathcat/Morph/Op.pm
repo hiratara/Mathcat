@@ -1,12 +1,12 @@
-package Mathcat::Morphism::Opposite;
+package Mathcat::Morph::Op;
 use Any::Moose;
 use Sub::Exporter;
 our $VERSION = '0.01';
 
-extends 'Mathcat::Morphism';
+extends 'Mathcat::Morph';
 
 has morphism   => (
-	isa      => 'Mathcat::Morphism',
+	isa      => 'Mathcat::Morph',
 	is       => 'ro',
 	required => 1,
 );

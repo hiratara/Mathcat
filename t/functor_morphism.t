@@ -1,10 +1,10 @@
 use strict;
 use Test::More tests => 17;
-use Mathcat::Morphism::Simple;
-use Mathcat::NaturalTransformation qw/nat/;
+use Mathcat::Morph::Simple;
+use Mathcat::Nat qw/nat/;
 
 # for shortcut
-BEGIN { use_ok 'Mathcat::Morphism::Functor'; }
+BEGIN { use_ok 'Mathcat::Morph::Funct'; }
 
 
 # Source and targets

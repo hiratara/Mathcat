@@ -1,8 +1,8 @@
 use strict;
 use warnings;
 use Test::More tests => 1;
-use Mathcat::Morphism::Subroutine;
-use Mathcat::Functor::Impls qw/$MAYBE_FUNCTOR/;
+use Mathcat::Morph::Sub;
+use Mathcat::Funct::Impls qw/$MAYBE_FUNCTOR/;
 
 
 my $morph = $MAYBE_FUNCTOR->( sub_morph { return reverse @_; } );

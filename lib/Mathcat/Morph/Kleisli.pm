@@ -1,17 +1,17 @@
-package Mathcat::Morphism::Kleisli;
+package Mathcat::Morph::Kleisli;
 use Any::Moose;
 our $VERSION = '0.1';
 
-extends 'Mathcat::Morphism';
+extends 'Mathcat::Morph';
 
 # Monad M
 has monad    => (is => 'ro', isa => 'Mathcat::Monad'   , required => 1);
 # Kleisli arrow: A -> M B
-has morphism => (is => 'ro', isa => 'Mathcat::Morphism', required => 1);
+has morphism => (is => 'ro', isa => 'Mathcat::Morph', required => 1);
 # ID arrow: B -> B
 has orig_target => (
 	is       => 'ro', 
-	isa      => 'Mathcat::Morphism', 
+	isa      => 'Mathcat::Morph', 
 	required => 1
 );
 

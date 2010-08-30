@@ -2,12 +2,12 @@ package Mathcat::Monad::Maybe;
 use strict;
 use warnings;
 use Sub::Exporter;
-use Mathcat::Functor;
-use Mathcat::Functor::Impls qw/$MAYBE_FUNCTOR/;
-use Mathcat::NaturalTransformation qw/nat/;
+use Mathcat::Funct;
+use Mathcat::Funct::Impls qw/$MAYBE_FUNCTOR/;
+use Mathcat::Nat qw/nat/;
 use Mathcat::Monad;
-use Mathcat::Morphism::Subroutine;
-use Mathcat::Morphism::Kleisli;
+use Mathcat::Morph::Sub;
+use Mathcat::Morph::Kleisli;
 our $VERSION = '0.01';
 
 my @export = qw/just nothing maybe_kleisli eval_maybe/;
@@ -30,7 +30,7 @@ our $MAYBE_MONAD = Mathcat::Monad->new(
 );
 
 sub just;
-*just = \&{ $MAYBE_MONAD->eta->( $Mathcat::Morphism::Subroutine::ID ) };
+*just = \&{ $MAYBE_MONAD->eta->( $Mathcat::Morph::Sub::ID ) };
 
 sub nothing(){ undef }
 
@@ -38,11 +38,11 @@ sub nothing(){ undef }
 sub maybe_kleisli(&){
 	my $code = shift;
 
-	return Mathcat::Morphism::Kleisli->new(
+	return Mathcat::Morph::Kleisli->new(
 		monad       => $MAYBE_MONAD,
 		morphism    => &sub_morph( $code ),
 		# All ids are considered as sub { @_ } in the category of subroutines.
-		orig_target => $Mathcat::Morphism::Subroutine::ID,
+		orig_target => $Mathcat::Morph::Sub::ID,
 	);
 }
 

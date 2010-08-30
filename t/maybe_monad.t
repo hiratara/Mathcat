@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 use Test::More tests => 4;
-use Mathcat::Morphism::Subroutine;
+use Mathcat::Morph::Sub;
 use Mathcat::Monad::Maybe;
 
 is_deeply just(1, 2, 3), [ 1, 2, 3];

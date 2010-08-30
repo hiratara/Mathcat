@@ -1,4 +1,4 @@
-package Mathcat::Functor;
+package Mathcat::Funct;
 use Any::Moose;
 use Sub::Exporter;
 
@@ -41,15 +41,15 @@ __END__
 
 =head1 NAME
 
-Mathcat::Functor - Abstract class for functor.
+Mathcat::Funct - Abstract class for functor.
 
 =head1 SYNOPSIS
 
-  use Mathcat::Functor;
+  use Mathcat::Funct;
 
 =head1 DESCRIPTION
 
-Mathcat::Functor is an abstract class for functor.
+Mathcat::Funct is an abstract class for functor.
 You should implement methods of this class to implement a functor.
 
 =head1 AUTHOR

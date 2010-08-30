@@ -8,21 +8,21 @@ use overload '&{}' => sub { my $s = shift; sub { $s->functor->(@_); }; };
 # Endo-functor T
 has functor => ( 
 	is      => 'ro', 
-	isa     => 'Mathcat::Functor', 
+	isa     => 'Mathcat::Funct', 
 	required => 1 
 );
 
 # Identity : I -> T
 has eta     => ( 
 	is      => 'ro', 
-	isa     => 'Mathcat::NaturalTransformation', 
+	isa     => 'Mathcat::Nat', 
 	required => 1 
 );
 
 # Associativity : TT -> T
 has mu      => ( 
 	is      => 'ro', 
-	isa     => 'Mathcat::NaturalTransformation', 
+	isa     => 'Mathcat::Nat', 
 	required => 1 
 );
 

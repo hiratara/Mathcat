@@ -1,12 +1,12 @@
-package Mathcat::Functor::Impls;
+package Mathcat::Funct::Impls;
 use strict;
 use warnings;
-use Mathcat::Functor;
-use Mathcat::NaturalTransformation qw/nat/;
-use Mathcat::Morphism::Functor;
-use Mathcat::Morphism::Subroutine;
-use Mathcat::Morphism::Bimorphism;
-use Mathcat::Morphism::Opposite qw/op/;
+use Mathcat::Funct;
+use Mathcat::Nat qw/nat/;
+use Mathcat::Morph::Funct;
+use Mathcat::Morph::Sub;
+use Mathcat::Morph::Bi;
+use Mathcat::Morph::Op qw/op/;
 use base Exporter::;
 our @EXPORT_OK = qw(
 	$HOM_BIFUNCTOR $YONEDA_EMBEDDING $LIST_FUNCTOR $STATE_FUNCTOR 
@@ -70,11 +70,11 @@ __END__
 
 =head1 NAME
 
-Mathcat::Functor::Impls - Functor implementations.
+Mathcat::Funct::Impls - Funct implementations.
 
 =head1 SYNOPSIS
 
-  use Mathcat::Functor::Impls qw($HOM_BIFUNCTOR);
+  use Mathcat::Funct::Impls qw($HOM_BIFUNCTOR);
 
 =head1 DESCRIPTION
 
@@ -87,7 +87,7 @@ Mathcat::Impl::HomBifunctor is implementation of C(-,-) bifunctor.
 C(-,-): C^op x C -> Sets
 
 Strictly speaking, it's not to Sets but to the category of perl subroutines.
-(via: SubroutineMorphism)
+(via: SubMorph)
 
 =back
 

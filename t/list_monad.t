@@ -1,17 +1,17 @@
 use strict;
 use warnings;
 use Test::More tests => 8;
-use Mathcat::Morphism::Subroutine;
-use Mathcat::NaturalTransformation qw/nat_funct funct_nat/;
+use Mathcat::Morph::Sub;
+use Mathcat::Nat qw/nat_funct funct_nat/;
 use Mathcat::Monad::Impls qw/$LIST_MONAD/;
 
-# the Functor
+# the Funct
 my $morph = $LIST_MONAD->( sub_morph { join ',', @_ } );
 is_deeply [ $morph->( ["abc", "e", "hi"], ["l", "mn", "opq"],  ) ],
           [ [ "abc,e,hi" ], [ "l,mn,opq" ] ];
 
 # Nats
-my $id_sub = $Mathcat::Morphism::Subroutine::ID;
+my $id_sub = $Mathcat::Morph::Sub::ID;
 is_deeply [ $LIST_MONAD->eta->( $id_sub )->( 'a', 'b', 'c' ) ],
           [ ['a', 'b', 'c' ] ];
 is_deeply [ $LIST_MONAD->mu->( $id_sub )->( 

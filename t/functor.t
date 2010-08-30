@@ -1,9 +1,9 @@
 use strict;
 use warnings;
 use Test::More tests => 3;
-use Mathcat::Morphism::Simple;
+use Mathcat::Morph::Simple;
 
-BEGIN { use_ok 'Mathcat::Functor'; };
+BEGIN { use_ok 'Mathcat::Funct'; };
 
 my $id = functor { $_[0]; };
 my $morph12 = simple_morph '1' => '2';

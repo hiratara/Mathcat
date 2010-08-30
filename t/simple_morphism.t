@@ -1,7 +1,7 @@
 use strict;
 use Test::More tests => 7;
 
-BEGIN { use_ok 'Mathcat::Morphism::Simple'; }
+BEGIN { use_ok 'Mathcat::Morph::Simple'; }
 
 # TEST 1: source and target
 {

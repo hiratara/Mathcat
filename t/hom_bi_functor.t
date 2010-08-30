@@ -1,10 +1,10 @@
 use strict;
 use Test::More tests => 2;
-use Mathcat::Morphism::Simple;
-use Mathcat::Morphism::Opposite qw/op/;
-use Mathcat::Morphism::Bimorphism;
-use Mathcat::Morphism::Subroutine;
-use Mathcat::Functor::Impls qw($HOM_BIFUNCTOR);
+use Mathcat::Morph::Simple;
+use Mathcat::Morph::Op qw/op/;
+use Mathcat::Morph::Bi;
+use Mathcat::Morph::Sub;
+use Mathcat::Funct::Impls qw($HOM_BIFUNCTOR);
 
 my $morph12 = simple_morph '1' => '2';
 my $morph23 = simple_morph '2' => '3';

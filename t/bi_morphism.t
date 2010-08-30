@@ -1,9 +1,9 @@
 use strict;
 use Test::More tests => 10;
-use Mathcat::Morphism::Simple;
-use Mathcat::Morphism::Subroutine;
+use Mathcat::Morph::Simple;
+use Mathcat::Morph::Sub;
 
-BEGIN { use_ok 'Mathcat::Morphism::Bimorphism'; };
+BEGIN { use_ok 'Mathcat::Morph::Bi'; };
 
 # TEST 1: source and target
 {

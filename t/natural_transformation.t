@@ -1,9 +1,9 @@
 use strict;
 use warnings;
-use Mathcat::Morphism::Subroutine;
+use Mathcat::Morph::Sub;
 use Test::More tests => 2;
 
-BEGIN { use_ok 'Mathcat::NaturalTransformation', qw/nat/; };
+BEGIN { use_ok 'Mathcat::Nat', qw/nat/; };
 
 my $nt = nat {
     my $id = shift;
@@ -11,5 +11,5 @@ my $nt = nat {
 };
 
 # natural transformation as id of category of functors
-my $comp = $nt->( $Mathcat::Morphism::Subroutine::ID );
+my $comp = $nt->( $Mathcat::Morph::Sub::ID );
 is $comp->('hoge'), 'hoge';

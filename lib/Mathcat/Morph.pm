@@ -1,4 +1,4 @@
-package Mathcat::Morphism;
+package Mathcat::Morph;
 use Any::Moose;
 our $VERSION = '0.01';
 
@@ -17,15 +17,15 @@ __END__
 
 =head1 NAME
 
-Mathcat::Morphism - Abstract class for morphism.
+Mathcat::Morph - Abstract class for morphism.
 
 =head1 SYNOPSIS
 
-  use Mathcat::Morphism;
+  use Mathcat::Morph;
 
 =head1 DESCRIPTION
 
-Mathcat::Morphism is an abstract class for morphism.
+Mathcat::Morph is an abstract class for morphism.
 You should implement methods of this class to implement a morphism.
 
 =head1 AUTHOR

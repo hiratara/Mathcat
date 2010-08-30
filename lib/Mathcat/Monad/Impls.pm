@@ -1,11 +1,11 @@
 package Mathcat::Monad::Impls;
 use strict;
 use warnings;
-use Mathcat::Functor;
-use Mathcat::Functor::Impls qw/$LIST_FUNCTOR $STATE_FUNCTOR/;
-use Mathcat::NaturalTransformation qw/nat/;
+use Mathcat::Funct;
+use Mathcat::Funct::Impls qw/$LIST_FUNCTOR $STATE_FUNCTOR/;
+use Mathcat::Nat qw/nat/;
 use Mathcat::Monad;
-use Mathcat::Morphism::Subroutine;
+use Mathcat::Morph::Sub;
 use base Exporter::;
 our $VERSION = '0.01';
 

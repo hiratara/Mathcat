@@ -1,4 +1,4 @@
-package Mathcat::Util::Subroutine;
+package Mathcat::Util::Sub;
 use Any::Moose;
 use Sub::Exporter;
 use overload '&{}' => sub { my $s = shift; sub { $s->subroutine->(@_); }; },

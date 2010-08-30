@@ -1,8 +1,8 @@
 use strict;
 use warnings;
 use Test::More tests => 2;
-use Mathcat::Morphism::Subroutine;
-use Mathcat::Functor::Impls qw/$STATE_FUNCTOR/;
+use Mathcat::Morph::Sub;
+use Mathcat::Funct::Impls qw/$STATE_FUNCTOR/;
 
 
 my $morph = $STATE_FUNCTOR->( sub_morph { map { $_ + 1 } @_; } );

@@ -1,4 +1,4 @@
-package Mathcat::Morphism::Subroutine;
+package Mathcat::Morph::Sub;
 use Any::Moose;
 use Sub::Exporter;
 
@@ -6,7 +6,7 @@ use overload '&{}' => sub { my $s = shift; sub { $s->call(@_); }; };
 
 our $VERSION = '0.01';
 
-extends 'Mathcat::Morphism';
+extends 'Mathcat::Morph';
 with 'Mathcat::Role::Subroutish';
 
 my @export = qw/sub_morph/;
@@ -44,15 +44,15 @@ __END__
 
 =head1 NAME
 
-Mathcat::Morphism - Abstract class for morphism.
+Mathcat::Morph - Abstract class for morphism.
 
 =head1 SYNOPSIS
 
-  use Mathcat::Morphism;
+  use Mathcat::Morph;
 
 =head1 DESCRIPTION
 
-Mathcat::Morphism is an abstract class for morphism.
+Mathcat::Morph is an abstract class for morphism.
 You should implement methods of this class to implement a morphism.
 
 =head1 AUTHOR
