@@ -78,6 +78,8 @@ Mathcat::Functor::Impls - Functor implementations.
 
 =head1 DESCRIPTION
 
+=over 4
+
 =item $HOM_BIFUNCTOR
 
 Mathcat::Impl::HomBifunctor is implementation of C(-,-) bifunctor.
@@ -86,6 +88,8 @@ C(-,-): C^op x C -> Sets
 
 Strictly speaking, it's not to Sets but to the category of perl subroutines.
 (via: SubroutineMorphism)
+
+=back
 
 =head1 AUTHOR
 
